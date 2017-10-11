@@ -34,7 +34,7 @@ class LoginController extends Controller
 
         Auth::login(User::where('strava_id', $user_from_strava->id)->first());
         
-        return redirect('/test');
+        return redirect('/dashboard');
     }
     
     public function test() {
