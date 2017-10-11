@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <a href="#"><p>activities</p></a>
+            <a href="../activities"><p>activities</p></a>
             <img src="" alt="">
         </header>
 
