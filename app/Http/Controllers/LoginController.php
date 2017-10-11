@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function redirectToStrava() {
+    public function redirect() {
         return redirect(Strava::redirectToStrava());
     }
 
-    public function callback() {
-        $login = Strava::finalizeLogin(\request()->get('code'));
+        public function callback() {
+        $login = Strava::finalizeLogin(request()->get('code'));
 
         $strava = new Strava($login->access_token);
 
