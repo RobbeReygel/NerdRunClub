@@ -6,6 +6,7 @@ use App\Strava;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -30,5 +31,13 @@ class LoginController extends Controller
         $user->token = $login->access_token;
 
         $user->save();
+
+        Auth::login(User::where('strava_id', $user_from_strava->id)->first());
+        
+        return redirect('/test');
+    }
+    
+    public function test() {
+        dd(Auth::user());
     }
 }
