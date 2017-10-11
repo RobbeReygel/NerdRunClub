@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login/redirect', 'LoginController@redirectToStrava');
+Route::get('/login/callback', 'LoginController@callback');
