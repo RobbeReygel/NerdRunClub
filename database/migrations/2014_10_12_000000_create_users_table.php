@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->integer('strava_id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('sex')->default('M');
+            $table->string('sex')->default('X');
             $table->string('avatar');
             $table->string('email');
             $table->string('token');

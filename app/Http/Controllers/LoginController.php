@@ -14,7 +14,7 @@ class LoginController extends Controller
         return redirect(Strava::redirectToStrava());
     }
 
-        public function callback() {
+    public function callback() {
         $login = Strava::finalizeLogin(request()->get('code'));
 
         $strava = new Strava($login->access_token);
@@ -32,12 +32,14 @@ class LoginController extends Controller
 
         $user->save();
 
-        Auth::login(User::where('strava_id', $user_from_strava->id)->first());
+        Auth::login($user);
         
         return redirect('/test');
     }
     
     public function test() {
-        dd(Auth::user());
+        $user = Auth::user();
+        $memes = $user;
+
     }
 }
