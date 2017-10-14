@@ -48,4 +48,37 @@ class Strava {
 
         return \GuzzleHttp\json_decode($res->getBody()->getContents());
     }
+
+    public function updateUserActivities() {
+
+        $users = User::all();
+
+        foreach ($users as $user)
+        {
+            $token = $user->token;
+
+            $client = new \GuzzleHttp\Client();
+
+            $res = $client->request('GET', 'https://www.strava.com/api/v3/athlete/activities',
+                ['query' => http_build_query([
+                    "access_token" => $token
+                ])]);
+
+            $apiResults = json_decode($res->getBody(), false);
+
+            foreach ($apiResults as $apiResult)
+            {
+
+                Activity::updateOrCreate(
+                    ['activityId' => $apiResult->id], ['name' => $apiResult->name, 'userid' => $user->id]
+                );
+
+                //TODO remove activities from database when removed in Strava
+                //Activity::where('activityId', "!=" , $apiResult->id)->delete();
+
+            }
+
+        }
+
+    }
 }
