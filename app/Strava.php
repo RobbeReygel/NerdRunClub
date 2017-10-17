@@ -70,7 +70,8 @@ class Strava {
             {
 
                 Activity::updateOrCreate(
-                    ['activityId' => $apiResult->id], ['name' => $apiResult->name, 'userid' => $user->id]
+                    ['activityId' => $apiResult->id],
+                    ['name' => $apiResult->name, 'distance' => $user->distance, 'userid' => $user->id, 'moving_time' => $user->moving_time, 'start_date' => $user->start_date]
                 );
 
                 //TODO remove activities from database when removed in Strava
