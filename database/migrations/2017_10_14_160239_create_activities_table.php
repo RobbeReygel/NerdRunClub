@@ -18,6 +18,9 @@ class CreateActivitiesTable extends Migration
             $table->integer('activityId');
             $table->integer('userid');
             $table->string('name');
+            $table->integer('distance')->nullable();
+            $table->integer('moving_time')->nullable();
+            $table->string("start_date")->nullable();
             $table->timestamps();
         });
     }
