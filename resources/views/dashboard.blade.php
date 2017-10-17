@@ -1,11 +1,6 @@
 @extends ('../layout/app')
 
 @section('content')
-    <header>
-        <a href="activities"><p>activities</p></a>
-        <img src="" alt="">
-    </header>
-
     <img src="#" alt="">
 
     <div id=total>
