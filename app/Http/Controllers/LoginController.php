@@ -7,6 +7,7 @@ use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -41,5 +42,10 @@ class LoginController extends Controller
         $user = Auth::user();
         $memes = $user;
 
+    }
+
+    public function logout() {
+        Session::flush();
+        return redirect('/');
     }
 }

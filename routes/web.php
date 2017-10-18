@@ -1,7 +1,8 @@
 <?php
 
 
-Route::get('/test', 'LoginController@test');
+Route::get('/', 'IndexController@index');
+Route::get('/logout', 'LoginController@logout');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
