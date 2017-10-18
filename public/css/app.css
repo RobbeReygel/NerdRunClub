@@ -8355,3 +8355,22 @@ h2 {
   margin-bottom: 0.5em;
 }
 
+.activityList {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.activityList .activityList-item {
+  padding: 0.6em 1.2em;
+  list-style-type: none;
+  border-bottom: 1px solid lightgrey;
+}
+
+h4.activityList-head {
+  background-color: #e77e21;
+  color: white;
+  margin: 1em 0 0 0;
+  padding: 0.6em 1em;
+}
+
