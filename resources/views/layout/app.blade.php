@@ -42,8 +42,6 @@
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
-<h1>Nerd Running Club</h1>
-
 <div class="container">
     @yield('content')
 </div>
