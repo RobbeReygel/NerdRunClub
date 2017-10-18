@@ -25,16 +25,18 @@
             <a class="navbar-brand" href="#">NerdRunClub</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/activities">Activities</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 @guest
-                    <li><a href="/login/redirect">Login</a></li>
-                    @endguest
+                    <li><a href="{{ route('auth.redirect') }}">Login</a></li>
+                @endguest
                 @auth
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->first_name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/logout">Logout</a></li>
-                                <li><a href="#">Another action</a></li>
+                                <li><a href="{{ route('auth.logout') }}">Logout</a></li>
                             </ul>
                         </li>
                 @endauth

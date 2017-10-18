@@ -16,7 +16,7 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('activityId');
-            $table->integer('userid');
+            $table->integer('user_id');
             $table->string('name');
             $table->integer('distance')->nullable();
             $table->integer('moving_time')->nullable();
