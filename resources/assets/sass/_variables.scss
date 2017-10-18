@@ -2,6 +2,7 @@
 // Body
 $body-bg: #f5f8fa;
 
+
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
 $list-group-border: $laravel-border-color;
@@ -15,6 +16,11 @@ $brand-info: #8eb4cb;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
 $brand-danger: #bf5329;
+
+//colors
+$primary-color: #e77e21;
+$secondary-color: #2F4F4F;
+
 
 // Typography
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
