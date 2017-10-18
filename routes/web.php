@@ -1,8 +1,8 @@
 <?php
 
 
-Route::get('/', 'IndexController@index');
-Route::get('/logout', 'LoginController@logout');
+Route::get('/', 'IndexController@index')->name('index');
+Route::get('/logout', 'LoginController@logout')->name('auth.logout');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +14,8 @@ Route::get('/logout', 'LoginController@logout');
 |
 */
 
-Route::get('/login/redirect', 'LoginController@redirect');
-Route::get('/login/callback', 'LoginController@callback');
+Route::get('/login/redirect', 'AuthController@redirect')->name('auth.redirect');
+Route::get('/login/callback', 'AuthController@callback');
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/activities', 'ActivitiesController@index');

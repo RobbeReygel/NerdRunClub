@@ -1,4 +1,4 @@
-@extends ('../layout/app')
+@extends ('layout.app')
 
 @section('content')
     <h2>your activities</h2>

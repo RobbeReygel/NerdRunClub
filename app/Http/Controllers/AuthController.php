@@ -2,25 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Strava;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Api\Strava;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
-    public function redirect() {
-        return redirect(Strava::redirectToStrava());
+    public function redirect(Strava $strava) {
+        return redirect($strava::redirectToStrava());
     }
 
-    public function callback() {
-        $login = Strava::finalizeLogin(request()->get('code'));
+    public function callback(Strava $strava) {
+        $login = $strava::finalizeLogin(request()->get('code'));
 
-        $strava = new Strava($login->access_token);
-
-        $user_from_strava = $strava->getLoggedInUser();
+        $user_from_strava = $strava::get('athlete', ['query' => 'access_token=' . $login->access_token]);
 
         $user = User::firstOrNew(['strava_id' => $user_from_strava->id]);
 
@@ -30,12 +28,11 @@ class LoginController extends Controller
         $user->avatar = $user_from_strava->profile;
         $user->email = $user_from_strava->email;
         $user->token = $login->access_token;
-
         $user->save();
 
         Auth::login($user);
         
-        return redirect('/dashboard');
+        return redirect()->route('dashboard');
     }
     
     public function test() {
@@ -46,6 +43,6 @@ class LoginController extends Controller
 
     public function logout() {
         Session::flush();
-        return redirect('/');
+        return redirect()->route('auth.logout');
     }
 }

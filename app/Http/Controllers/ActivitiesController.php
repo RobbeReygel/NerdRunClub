@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
+use App\Api\Strava;
 use Illuminate\Http\Request;
-use Auth;
 use GuzzleHttp\Client;
-use App\Strava;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ActivitiesController extends Controller
@@ -18,7 +19,7 @@ class ActivitiesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     /**
@@ -26,38 +27,21 @@ class ActivitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Strava $strava)
     {
-        $user = Auth::id();
+        $activities = $strava::get('athlete/activities', ['query' => 'access_token=' . Auth::user()->token]);
+        foreach ($activities as $activity) {
+            Activity::updateOrCreate(
+                ['activityId' => $activity->id],
+                ['name' => $activity->name, 'distance' => $activity->distance, 'user_id' => Auth::user()->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
+            );
 
-        $mem = User::where('id',$user) -> first();
-        $token = $mem->token;
-
-        $strava = new Strava($mem->token);
-
-        //updates activities to database when page loads (scheduled every hour for all users)
-        $strava->updateUserActivities();
-
-        $client = new \GuzzleHttp\Client();
-
-        $res = $client->request('GET', 'https://www.strava.com/api/v3/athlete/activities',
-            ['query' => http_build_query([
-                "access_token" => $token
-            ])]);
-
-
-
-        $apiResults = json_decode($res->getBody(), false);
-/*
-        foreach ($apiResults as $apiResult)
-        {
-
-            echo $apiResult->name;
-            echo $apiResult->id;
-            echo "</br>";
+            //TODO remove activities from database when removed in Strava
+            //Activity::where('activityId', "!=" , $apiResult->id)->delete();
 
         }
-*/
+
+        $apiResults = Auth::user()->activities;
         return view('activities', compact('apiResults'));
   
     }
