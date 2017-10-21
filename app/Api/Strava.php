@@ -3,8 +3,11 @@
 namespace App\Api;
 
 use GuzzleHttp\Client;
+use App\User;
+use App\Activity;
 
-class Strava {
+class Strava
+{
     static $client_secret;
     static $client_id;
     static $client;
@@ -16,13 +19,15 @@ class Strava {
         self::$client = new Client(['base_uri' => 'https://www.strava.com/api/v3/']);
     }
 
-    public static function get($url, $config) {
+    public static function get($url, $config)
+    {
         $result = self::$client->get($url, $config);
         $content = $result->getBody()->getContents();
         return \GuzzleHttp\json_decode($content);
     }
 
-    public static function redirectToStrava () {
+    public static function redirectToStrava()
+    {
         return 'https://www.strava.com/oauth/authorize' .
             '?client_id=20586' .
             '&redirect_uri=http://192.168.10.10/login/callback' .
@@ -31,7 +36,8 @@ class Strava {
             '&scope=public';
     }
 
-    public static function finalizeLogin($code) {
+    public static function finalizeLogin($code)
+    {
         $client = new Client(['base_uri' => 'https://www.strava.com/']);
 
         $res = $client->request(
@@ -47,29 +53,17 @@ class Strava {
         return \GuzzleHttp\json_decode($res->getBody()->getContents());
     }
 
-    public function updateUserActivities() {
+    public function updateUserActivities()
+    {
 
         $users = User::all();
 
-        foreach ($users as $user)
-        {
-            $token = $user->token;
-
-            $client = new \GuzzleHttp\Client();
-
-            $res = $client->request('GET', 'https://www.strava.com/api/v3/athlete/activities',
-                ['query' => http_build_query([
-                    "access_token" => $token
-                ])]);
-
-            $apiResults = json_decode($res->getBody(), false);
-
-            foreach ($apiResults as $apiResult)
-            {
-
+        foreach ($users as $user) {
+            $activities = Strava::get('athlete/activities', ['query' => 'access_token=' . $user->token]);
+            foreach ($activities as $activity) {
                 Activity::updateOrCreate(
-                    ['activityId' => $apiResult->id],
-                    ['name' => $apiResult->name, 'distance' => $user->distance, 'userid' => $user->id, 'moving_time' => $user->moving_time, 'start_date' => $user->start_date]
+                    ['activityId' => $activity->id],
+                    ['name' => $activity->name, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
                 );
 
                 //TODO remove activities from database when removed in Strava
@@ -78,6 +72,5 @@ class Strava {
             }
 
         }
-
     }
 }
