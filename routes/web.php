@@ -19,3 +19,4 @@ Route::get('/login/callback', 'AuthController@callback');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/activities', 'ActivitiesController@index');
+Route::get('/leaderboard', 'LeaderboardController@index');

@@ -27,6 +27,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/activities">Activities</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @guest
