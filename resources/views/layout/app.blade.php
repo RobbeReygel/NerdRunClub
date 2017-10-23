@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -26,7 +26,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/activities">Activities</a></li>
+                <li><a href="{{ route('activities') }}">Activities</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @guest
@@ -36,13 +36,14 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->first_name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="{{ route('profile.index') }}">Profile</a></li>
                                 <li><a href="{{ route('auth.logout') }}">Logout</a></li>
                             </ul>
                         </li>
                 @endauth
             </ul>
-        </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+        </div>
+    </div>
 </nav>
 <div class="container">
     @yield('content')

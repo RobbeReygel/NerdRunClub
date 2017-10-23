@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-// Variables
 @import "variables";
-
-// Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "profile";
+
 // Code
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 h2{
   color: $primary-color;

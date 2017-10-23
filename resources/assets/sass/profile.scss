@@ -1,0 +1,25 @@
+.profile {
+  .profile__info {
+    text-align: center;
+    margin: 50px 0;
+
+    img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    .profile__name {
+      margin: 20px 0;
+
+      h3 {
+        font-weight: bold;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

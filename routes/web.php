@@ -14,8 +14,10 @@ Route::get('/logout', 'LoginController@logout')->name('auth.logout');
 |
 */
 
+Route::get('/profile', 'ProfileController@index')->name('profile.index');
+
 Route::get('/login/redirect', 'AuthController@redirect')->name('auth.redirect');
 Route::get('/login/callback', 'AuthController@callback');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('/activities', 'ActivitiesController@index');
+Route::get('/activities', 'ActivitiesController@index')->name('activities');
