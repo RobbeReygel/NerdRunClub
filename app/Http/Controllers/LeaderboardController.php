@@ -13,11 +13,25 @@ class LeaderboardController extends Controller
     public function index(Strava $strava)
     {
 
-        $res= User::with('sumDistance')->all();
+        //$list = User::with('sumDistance')->get();
 
-        dd($res);
+        $list = User::with('sumDistance')->get()->sortBy("sumDistance.sum_distance");
+        return view('leaderboard', compact('list'));
 
-        //return view('leaderboard', compact('apiResults'));
+/*
+        $users = User::all();
+        $list = array();
+
+        foreach ($users as $user) {
+
+            $res = $user->sumDistance;
+
+            $list[] = $res;
+        }
+
+        dd($list);
+*/
+
 
     }
 }
