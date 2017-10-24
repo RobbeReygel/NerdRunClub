@@ -10,28 +10,28 @@ use App\User;
 
 class LeaderboardController extends Controller
 {
+    public function cmp($a, $b)
+    {
+        return strcmp($a->totalDistance, $b->totalDistance);
+    }
+
     public function index(Strava $strava)
     {
-
-        //$list = User::with('sumDistance')->get();
-
-        $list = User::with('sumDistance')->get()->sortBy("sumDistance.sum_distance");
-        return view('leaderboard', compact('list'));
-
-/*
         $users = User::all();
         $list = array();
 
         foreach ($users as $user) {
-
-            $res = $user->sumDistance;
-
+            $res = $user;
+            $res->totalDistance = $user->totalDistance[0]->sum_distance;
             $list[] = $res;
         }
 
-        dd($list);
-*/
+        usort($list , function( $a, $b) {
+            if( $a->totalDistance == $b->totalDistance)
+                return 0;
+            return $a->totalDistance < $b->totalDistance ? 1 : -1; // Might need to switch 1 and -1
+        });
 
-
+        return view('leaderboard', compact('list'));
     }
 }

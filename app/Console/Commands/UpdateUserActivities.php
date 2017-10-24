@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\User;
 use Illuminate\Console\Command;
 use App\Api\Strava;
 
@@ -38,8 +39,9 @@ class UpdateUserActivities extends Command
      */
     public function handle()
     {
-        $token = "memes";
-        $strava = new Strava($token);
-        $strava->updateUserActivities();
+        foreach (User::all() as $user) {
+            $strava = new Strava($user->token);
+            $strava->updateUserActivities();
+        }
     }
 }

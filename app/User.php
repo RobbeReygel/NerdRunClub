@@ -15,11 +15,10 @@ class User  extends Authenticatable
         return $this->hasMany('App\Activity');
     }
 
-    public function sumDistance()
+    public function totalDistance()
     {
         return $this->hasMany('App\Activity')
             ->selectRaw('user_id, sum(distance) as sum_distance')
             ->groupBy('user_id');
-            //->orderBy('sum_distance', 'desc');
     }
 }
