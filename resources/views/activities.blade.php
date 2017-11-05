@@ -6,8 +6,8 @@
         <h4 class="activityList-head">{{ $apiResult->name }}</h4>
         <ul class="activityList">
 
-            <li class="activityList-item">{{ $apiResult->distance}} km</li>
-            <li class="activityList-item">{{ $apiResult->moving_time}}</li>
+            <li class="activityList-item">{{ $apiResult->distance / 1000}} km</li>
+            <li class="activityList-item">{{ $apiResult->moving_time / 3600}}</li>
 
         </ul>
     @endforeach
