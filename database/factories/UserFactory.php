@@ -19,8 +19,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'strava_id' => mt_rand(10000000, 99999999),
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'sex' => "X",
-        'avatar' => "https://goo.gl/pBByBv",
+        'sex' => $faker->randomElement($array = array ('M','V')),
+        'avatar' => $faker->imageUrl($width = 250, $height = 250),
         'email' => $faker->unique()->safeEmail,
         'token' => "7de8ff22af9c5c43a5ddcf03b1e8b1aab30b2d8f",
     ];
