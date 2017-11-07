@@ -25,3 +25,6 @@ Route::get('/activities', 'ActivitiesController@index')->name('activities');
 
 Route::get('/leaderboard', 'LeaderboardController@index')->name('leaderboard');
 
+Route::get('/markAsRead',function(){
+    auth()->user()->unreadNotifications->markAsRead();
+});

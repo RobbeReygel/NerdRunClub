@@ -29,8 +29,8 @@ class ActivitiesController extends Controller
      */
     public function index(Strava $strava)
     {
-        $apiResults = Auth::user()->activities;
-        return view('activities', compact('apiResults'));
+        $activities = Auth::user()->activities;
+        return view('activities', compact('activities'));
   
     }
 

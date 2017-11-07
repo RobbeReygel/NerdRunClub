@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="https://use.fontawesome.com/ef9fae15ba.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -34,6 +36,21 @@
                     <li><a href="{{ route('auth.redirect') }}">Login</a></li>
                 @endguest
                 @auth
+
+                        <li class="dropdown" id="markasread" onclick="markNotificationAsRead()">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                <span class="fa fa-bell"> {{ count(auth()->user()->unreadNotifications) }}</span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @foreach(auth()->user()->unreadNotifications as $notification)
+                                        @include('notification.'.snake_case(class_basename($notification->type)))
+                                    @endforeach
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->first_name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">

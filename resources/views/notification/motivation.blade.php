@@ -1,0 +1,1 @@
+<a href="/dashboard">It's been a while since your last activity. Don't give up!</a>

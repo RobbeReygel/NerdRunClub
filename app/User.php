@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Activity;
 use Illuminate\Support\Carbon;
+use Illuminate\Notifications\Notifiable;
 
 class User  extends Authenticatable
 {
+
+    use Notifiable;
 
     protected $fillable = ['strava_id', 'first_name', 'last_name', 'sex', 'avatar', 'email', 'token'];
 
@@ -16,6 +19,10 @@ class User  extends Authenticatable
         return $this->hasMany('App\Activity');
     }
 
+    public function lastActivity() {
+        return $this->hasMany('App\Activity')
+            ->orderBy('created_at', 'desc');
+    }
 
     public function totalDistance()
     {

@@ -2,12 +2,12 @@
 
 @section('content')
     <h2>your activities</h2>
-    @foreach ($apiResults as $apiResult)
-        <h4 class="activityList-head">{{ $apiResult->name }}</h4>
+    @foreach ($activities as $activity)
+        <h4 class="activityList-head">{{ $activity->name }}</h4>
         <ul class="activityList">
 
-            <li class="activityList-item">{{ $apiResult->distance / 1000}} km</li>
-            <li class="activityList-item">{{ $apiResult->moving_time / 3600}}</li>
+            <li class="activityList-item">{{ $activity->distance / 1000}} km</li>
+            <li class="activityList-item">{{ $activity->moving_time / 3600}}</li>
 
         </ul>
     @endforeach
