@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\UpdateUserActivities',
     ];
 
     /**
@@ -25,8 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('activities:update')
-                 ->hourly();
+        $schedule->command('activities:update')->everyHour();
     }
 
     /**

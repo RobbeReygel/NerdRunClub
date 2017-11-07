@@ -17,7 +17,7 @@ class LeaderboardController extends Controller
 
     public function index(Strava $strava)
     {
-        $users = User::all();
+        $users = User::has('activities')->get();
         $list = array();
 
         foreach ($users as $user) {
@@ -31,6 +31,8 @@ class LeaderboardController extends Controller
                 return 0;
             return $a->totalDistance < $b->totalDistance ? 1 : -1; // Might need to switch 1 and -1
         });
+
+        $list = array_slice($list, 0, 50);
 
         return view('leaderboard', compact('list'));
     }
