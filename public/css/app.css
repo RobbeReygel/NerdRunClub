@@ -8374,12 +8374,6 @@ button.close {
   margin: 0;
 }
 
-div#leaderboard {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
 #leaderboard img {
   width: 60px;
   height: 60px;
