@@ -20,7 +20,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'sex' => $faker->randomElement($array = array ('M','V')),
-        'avatar' => $faker->imageUrl($width = 250, $height = 250),
+        'avatar' => $faker->imageUrl($width = 250, $height = 250, 'people'),
         'email' => $faker->unique()->safeEmail,
         'token' => "7de8ff22af9c5c43a5ddcf03b1e8b1aab30b2d8f",
     ];
