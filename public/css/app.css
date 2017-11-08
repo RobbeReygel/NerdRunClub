@@ -8383,6 +8383,10 @@ button.close {
 
 #leaderboard ul {
   list-style-type: none;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 93%;
 }
 
 #leaderboard li {
