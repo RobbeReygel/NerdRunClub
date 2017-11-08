@@ -4,7 +4,7 @@
     <h2>your activities</h2>
     @foreach ($activities as $activity)
         <div id="activity">
-        <h4 class="activityList-head">{{ $activity->name }}</h4>
+        <a href=""><h4 class="activityList-head">{{ $activity->name }}</h4></a>
         <ul class="activityList">
 
             <li class="activityList-item">{{ $activity->distance / 1000}} km</li>
