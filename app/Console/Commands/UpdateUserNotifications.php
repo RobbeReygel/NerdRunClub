@@ -43,7 +43,7 @@ class UpdateUserNotifications extends Command
     public function handle()
     {
         //
-        $users = User::all();
+        $users = User::has('activities')->get();
 
         foreach($users as $user) {
 
