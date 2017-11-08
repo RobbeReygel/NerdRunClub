@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
@@ -28,14 +30,36 @@ class DashboardController extends Controller
 
         $user = Auth::user();
 
+        $fdate = $user->lastActivity->first()->created_at;
+        $tdate = Carbon::now();
+
+        $datetime1 = new DateTime($fdate);
+        $datetime2 = new DateTime($tdate);
+        $interval = $datetime1->diff($datetime2);
+        $days = $interval->format('%a');
+
+
         $users = User::has('activities')->get();
         $list = array();
 
 
         foreach ($users as $u) {
-            $res = $u;
-            $res->totalDistanceWeekly = $u->totalDistanceWeekly[0]->sum_distance;
-            $list[] = $res;
+            $fdate = $u->lastActivity->first()->created_at;
+            $tdate = Carbon::now();
+
+            $datetime1 = new DateTime($fdate);
+            $datetime2 = new DateTime($tdate);
+            $interval = $datetime1->diff($datetime2);
+            $dayslist = $interval->format('%a');
+            if($dayslist < 7) {
+                $res = $u;
+                $res->totalDistanceWeekly = $u->totalDistanceWeekly[0]->sum_distance;
+                $list[] = $res;
+            }else{
+                $res = $u;
+                $res->totalDistanceWeekly = 0;
+                $list[] = $res;
+            }
         }
 
 
@@ -47,6 +71,6 @@ class DashboardController extends Controller
 
         $list = array_slice($list, 0, 3);
 
-        return view('dashboard', compact('user', 'list'));
+        return view('dashboard', compact('user', 'list', 'days'));
     }
 }

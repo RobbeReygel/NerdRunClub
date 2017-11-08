@@ -14,7 +14,7 @@
 
     <div id="week">
         <h4 class="inbox">Deze week</h4>
-        @if (isset($user->totalDistanceWeekly[0]->sum_distance) && isset($user->totalTimeWeekly[0]->sum_time))
+        @if ($days < 7)
             <p id="totalrun">{{ $user->totalDistanceWeekly[0]->sum_distance/1000 }}km</p>
             <p id="totaltime">{{ gmdate("H:i", $user->totalTimeWeekly[0]->sum_time) }} uur</p>
         @else
