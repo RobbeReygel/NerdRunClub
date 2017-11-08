@@ -1,40 +1,44 @@
 @extends ('../layout/app')
 
 @section('content')
-    <img src="#" alt="">
+        <div id="week">
+            <h4 class="inbox">Weekelijkse vooruitgang</h4>
+            <p>Deze week: 5km lopen</p>
+            <p>Volgende week: 10km lopen</p>
+            <div>Progressbar</div>
+        </div>
 
     @if (isset($user->totalDistance[0]->sum_distance))
 
-    <div id=total>
-        <h4 class="inbox">Totaal reeds gelopen</h4>
-        <p id="totalrun">{{ $user->totalDistance[0]->sum_distance/1000 }}km</p>
-        <p id="totaltime">{{ gmdate("H:i", $user->totalTime[0]->sum_time) }} uur</p>
-    </div>
-
-
-    <div id="week">
-        <h4 class="inbox">Deze week</h4>
-        @if ($days < 7)
-            <p id="totalrun">{{ $user->totalDistanceWeekly[0]->sum_distance/1000 }}km</p>
-            <p id="totaltime">{{ gmdate("H:i", $user->totalTimeWeekly[0]->sum_time) }} uur</p>
-        @else
-            <p id="totalrun">0km</p>
-            <p id="totaltime">0 uur</p>
-        @endif
-    </div>
-
-    @else
+        <div id="week">
+            <h4 class="inbox">Deze week</h4>
+            @if ($days < 7)
+                <p id="totalrun">{{ $user->totalDistanceWeekly[0]->sum_distance/1000 }}km</p>
+                <p id="totaltime">{{ gmdate("H:i", $user->totalTimeWeekly[0]->sum_time) }} uur</p>
+            @else
+                <p id="totalrun">0km</p>
+                <p id="totaltime">0 uur</p>
+            @endif
+        </div>
 
         <div id=total>
             <h4 class="inbox">Totaal reeds gelopen</h4>
-            <p id="totalrun">0km</p>
-            <p id="totaltime">0 uur</p>
+            <p id="totalrun">{{ $user->totalDistance[0]->sum_distance/1000 }}km</p>
+            <p id="totaltime">{{ gmdate("H:i", $user->totalTime[0]->sum_time) }} uur</p>
         </div>
+
+    @else
 
         <div id="week">
             <h4 class="inbox">Deze week</h4>
 
             <!--<h3>Jij</h3>-->
+            <p id="totalrun">0km</p>
+            <p id="totaltime">0 uur</p>
+        </div>
+
+        <div id=total>
+            <h4 class="inbox">Totaal reeds gelopen</h4>
             <p id="totalrun">0km</p>
             <p id="totaltime">0 uur</p>
         </div>
