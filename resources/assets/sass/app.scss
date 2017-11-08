@@ -14,7 +14,7 @@ body {
 
 h2{
   color: $primary-color;
-  margin-bottom: 0.5em;
+  margin-bottom: 50px;
 }
 .activityList{
   margin:0;
@@ -30,7 +30,75 @@ h2{
 h4.activityList-head{
   background-color: $primary-color;
   color: white;
-  margin: 1em 0 0 0;
+  margin: 0;
   padding:0.6em 1em;
 }
+#activity{
+  width: 93%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 5px lightgrey;
+  margin-bottom: 25px;
+}
+#totalrun, #totaltime{
+  width: 50%;
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 1.5em 0 3em 0;
+  font-size: 2em;
+}
+#total, #week {
+  width: 93%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  box-shadow: 0 2px 5px lightgrey;
+  margin-bottom: 25px;
+
+}
+#week{
+  margin-bottom: 75px;
+}
+h4.inbox{
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: $primary-color;
+  padding-top: 1.5em;
+}
+
+#total:after, #week:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+div.top3{
+  width: 93%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+div.top3 section{
+  width: 30%;
+  text-align: center;
+  background-color: $primary-color;
+  padding: 1em 0;
+  box-shadow: 0 2px 5px grey;
+}
+img#top3Avatar{
+  margin:1em 0;
+}
+div.top3 p{
+  color: white;
+  font-size: 1.1em;
+}
+p#name{
+  font-weight: bold;
+}
+
 

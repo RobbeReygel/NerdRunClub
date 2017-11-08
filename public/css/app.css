@@ -8374,13 +8374,46 @@ button.close {
   margin: 0;
 }
 
+#leaderboard img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+#leaderboard ul {
+  list-style-type: none;
+}
+
+#leaderboard li {
+  margin-bottom: 25px;
+  background-color: #e77e21;
+  padding: 1.2em 0;
+  color: white;
+  -webkit-box-shadow: 0 2px 5px grey;
+          box-shadow: 0 2px 5px grey;
+  list-style-type: none;
+}
+
+#leaderboard h3 {
+  display: inline-block;
+  width: 10%;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+#leaderboard span {
+  font-size: 1.1em;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
   color: #e77e21;
-  margin-bottom: 0.5em;
+  margin-bottom: 50px;
 }
 
 .activityList {
@@ -8398,7 +8431,96 @@ h2 {
 h4.activityList-head {
   background-color: #e77e21;
   color: white;
-  margin: 1em 0 0 0;
+  margin: 0;
   padding: 0.6em 1em;
+}
+
+#activity {
+  width: 93%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 0 2px 5px lightgrey;
+          box-shadow: 0 2px 5px lightgrey;
+  margin-bottom: 25px;
+}
+
+#totalrun,
+#totaltime {
+  width: 50%;
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 1.5em 0 3em 0;
+  font-size: 2em;
+}
+
+#total,
+#week {
+  width: 93%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  -webkit-box-shadow: 0 2px 5px lightgrey;
+          box-shadow: 0 2px 5px lightgrey;
+  margin-bottom: 25px;
+}
+
+#week {
+  margin-bottom: 75px;
+}
+
+h4.inbox {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #e77e21;
+  padding-top: 1.5em;
+}
+
+#total:after,
+#week:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+div.top3 {
+  width: 93%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.top3 section {
+  width: 30%;
+  text-align: center;
+  background-color: #e77e21;
+  padding: 1em 0;
+  -webkit-box-shadow: 0 2px 5px grey;
+          box-shadow: 0 2px 5px grey;
+}
+
+img#top3Avatar {
+  margin: 1em 0;
+}
+
+div.top3 p {
+  color: white;
+  font-size: 1.1em;
+}
+
+p#name {
+  font-weight: bold;
 }
 

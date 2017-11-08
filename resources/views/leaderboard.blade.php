@@ -6,7 +6,11 @@
     <ul>
         @foreach($list as $item)
 
-            <li>{{ $i++ }}<img src="{{ $item->avatar }}" alt="avatar"> {{ $item->first_name }} - {{ $item->totalDistance/1000 }} km</li>
+            <li>
+                <h3>{{ $i++ }}</h3>
+                <img src="{{ $item->avatar }}" alt="avatar">
+                <span>{{ $item->first_name }} - {{ $item->totalDistance/1000 }} km</span>
+            </li>
         @endforeach
     </ul>
     </div>
