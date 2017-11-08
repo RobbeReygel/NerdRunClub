@@ -26,13 +26,13 @@
     @else
 
         <div id=total>
-            <h2>Totaal reeds gelopen</h2>
+            <h4 class="inbox">Totaal reeds gelopen</h4>
             <p id="totalrun">0km</p>
             <p id="totaltime">0 uur</p>
         </div>
 
         <div id="week">
-            <h2>Deze week</h2>
+            <h4 class="inbox">Deze week</h4>
 
             <!--<h3>Jij</h3>-->
             <p id="totalrun">0km</p>
