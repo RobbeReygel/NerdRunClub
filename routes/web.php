@@ -2,7 +2,7 @@
 
 
 Route::get('/', 'IndexController@index')->name('index');
-Route::get('/logout', 'LoginController@logout')->name('auth.logout');
+Route::get('/logout', 'AuthController@logout')->name('auth.logout');
 /*
 |--------------------------------------------------------------------------
 | Web Routes

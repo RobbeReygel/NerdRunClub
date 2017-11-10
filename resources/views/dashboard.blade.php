@@ -53,7 +53,7 @@
             <section>
                 <img id="top3Avatar" src="{{ $item->avatar }}" alt="avatar">
                 <p id="name">{{ $item->first_name }}</p>
-                <p id="km">{{ $item->totalDistanceWeekly/1000 }} km</p>
+                <p id="km">{{ number_format($item->totalDistanceWeekly/1000) }} km</p>
             </section>
         @endforeach
 

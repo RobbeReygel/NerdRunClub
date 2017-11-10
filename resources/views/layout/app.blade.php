@@ -24,12 +24,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            @guest
+                <a class="navbar-brand" href="/">NerdRunClub</a>
+            @endguest
+            @auth
             <a class="navbar-brand" href="/dashboard">NerdRunClub</a>
+            @endauth
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                @auth
                 <li><a href="/activities">Activities</a></li>
                 <li><a href="/leaderboard">Leaderboard</a></li>
+                @endauth
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @guest

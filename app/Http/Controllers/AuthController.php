@@ -43,6 +43,6 @@ class AuthController extends Controller
 
     public function logout() {
         Session::flush();
-        return redirect()->route('auth.logout');
+        return redirect()->route('index');
     }
 }
