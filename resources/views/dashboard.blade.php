@@ -5,10 +5,17 @@
             <h4 class="inbox">Weekelijkse vooruitgang</h4>
             <p class="this-week">Deze week: {{ $goal['totalRanThisWeek'] / 1000 }}km / {{ $goal['goalThisWeek'] }}km</p>
             <div class="weekly-goal">
-                <div class="inner" style="width: {{ round(($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek'] * 100) }}%">
+                @if ($goal['totalRanThisWeek'] == 0)
+                    <div class="inner" style="width: 0%">
 
-                </div>
-                <p>{{ round(($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek'] * 100) }}%</p>
+                    </div>
+                    <p>0%</p>
+                @else
+                    <div class="inner" style="width: {{ round(($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek'] * 100) }}%">
+
+                    </div>
+                    <p>{{ round(($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek'] * 100) }}%</p>
+                @endif
             </div>
             <p class="next-week">Volgende week: {{ $goal['goalNextWeek'] }}km lopen</p>
         </div>

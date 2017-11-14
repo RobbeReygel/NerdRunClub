@@ -10,7 +10,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-class ActivitiesController extends Controller
+class MedalController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,15 +23,13 @@ class ActivitiesController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application medals.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Strava $strava)
+    public function index()
     {
-        $activities = Auth::user()->activities;
-        return view('activities', compact('activities'));
-
+        return view('medals');
     }
 
 }

@@ -36,6 +36,7 @@
                 @auth
                 <li><a href="/activities">Activities</a></li>
                 <li><a href="/leaderboard">Leaderboard</a></li>
+                <li><a href="/medals">Medals</a></li>
                 @endauth
             </ul>
             <ul class="nav navbar-nav navbar-right">

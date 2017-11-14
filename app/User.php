@@ -41,18 +41,26 @@ class User  extends Authenticatable
 
     public function totalDistanceWeekly()
     {
+        $monday = Carbon::now()->startOfWeek();
+        $sunday = Carbon::now()->endOfWeek();
+
         return $this->hasMany('App\Activity')
             ->selectRaw('user_id, sum(distance) as sum_distance')
             ->groupBy('user_id')
-            ->where('created_at', '>=', Carbon::now()->subDay(7));
+            ->where('start_date', '>=', $monday)
+            ->where('start_date', '<=', $sunday);
     }
 
     public function totalTimeWeekly()
     {
+        $monday = Carbon::now()->startOfWeek();
+        $sunday = Carbon::now()->endOfWeek();
+
         return $this->hasMany('App\Activity')
             ->selectRaw('user_id, sum(moving_time) as sum_time')
             ->groupBy('user_id')
-            ->where('created_at', '>=', Carbon::now()->subDay(7));
+            ->where('start_date', '>=', $monday)
+            ->where('start_date', '<=', $sunday);
     }
 
     public function getRanPreviousWeek() {

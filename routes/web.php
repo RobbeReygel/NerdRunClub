@@ -24,6 +24,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/activities', 'ActivitiesController@index')->name('activities');
 
 Route::get('/leaderboard', 'LeaderboardController@index')->name('leaderboard');
+Route::get('/medals', 'MedalController@index')->name('medals');
 
 Route::get('/markAsRead',function(){
     auth()->user()->unreadNotifications->markAsRead();
