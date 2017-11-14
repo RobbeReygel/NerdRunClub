@@ -97,7 +97,12 @@ class DashboardController extends Controller
             $totalRanThisWeek += $a->distance;
         }
 
+        $goalThisWeek = round(($totalRanPreviousWeek * 1.1) / 1000);
+        $goalNextWeek = round($goalThisWeek + ($totalRanThisWeek * .5) / 1000);
+
         $data["totalRanThisWeek"] = $totalRanThisWeek;
+        $data["goalThisWeek"] = $goalThisWeek;
+        $data["goalNextWeek"] = $goalNextWeek;
 
         return $data;
     }

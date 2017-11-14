@@ -8471,7 +8471,19 @@ h4.activityList-head {
 }
 
 #week {
+  text-align: center;
   margin-bottom: 75px;
+  padding: 20px;
+}
+
+#week .this-week {
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+#week .next-week {
+  margin-top: 20px;
+  color: #5e5e5e;
 }
 
 h4.inbox {
@@ -8530,7 +8542,6 @@ p#name {
 
 div.bgContainer {
   background-color: black;
-  background-image: url(/images/runningBg.png?9cf5214d369821f59157d44ca864e856);
   background-position: left;
   background-size: cover;
   width: 100%;
@@ -8653,5 +8664,30 @@ nav.textLogo a {
   nav.textLogo a {
     color: #e77e21;
   }
+}
+
+.weekly-goal {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #5e5e5e;
+  position: relative;
+  overflow: hidden;
+}
+
+.weekly-goal p {
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.weekly-goal .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 53px;
+  background: #e77e21;
 }
 
