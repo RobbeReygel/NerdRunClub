@@ -98,6 +98,9 @@ class DashboardController extends Controller
         }
 
         $goalThisWeek = round(($totalRanPreviousWeek * 1.1) / 1000);
+        if ($goalThisWeek < 3)
+            $goalThisWeek = 3;
+
         $goalNextWeek = round($goalThisWeek + ($totalRanThisWeek * .3) / 1000);
 
         $data["totalRanThisWeek"] = $totalRanThisWeek;
