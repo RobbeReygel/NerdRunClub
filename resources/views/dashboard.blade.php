@@ -3,7 +3,7 @@
 @section('content')
         <div id="week">
             <h4 class="inbox">Weekelijkse vooruitgang</h4>
-            <p>Deze week: 5km lopen</p>
+            <p>Deze week: {{ $goal['totalRanThisWeek'] / 1000 }}km / 5km</p>
             <p>Volgende week: 10km lopen</p>
             <div>Progressbar</div>
         </div>

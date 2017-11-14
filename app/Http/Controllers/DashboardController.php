@@ -29,8 +29,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
         $user = Auth::user();
+
+        $goal = $this->getWeeklyGoal();
+
+        $strava = new Strava();
+        $strava->updateUserActivities($user);
 
         $fdate = $user->lastActivity->first()->created_at;
         $tdate = Carbon::now();
@@ -73,9 +77,28 @@ class DashboardController extends Controller
 
         $list = array_slice($list, 0, 3);
 
-        $strava = new Strava();
-        $strava->updateUserActivities($user);
+        return view('dashboard', compact('user', 'list', 'days', 'goal'));
+    }
 
-        return view('dashboard', compact('user', 'list', 'days'));
+    public function getWeeklyGoal() {
+        $user = Auth::user();
+        $data = [];
+
+        $previouwWeek = $user->getRanPreviousWeek();
+        $thisWeek = $user->getRanThisWeek();
+
+        $totalRanPreviousWeek = 0;
+        foreach ($previouwWeek as $a) {
+            $totalRanPreviousWeek += $a->distance;
+        }
+
+        $totalRanThisWeek = 0;
+        foreach ($thisWeek as $a) {
+            $totalRanThisWeek += $a->distance;
+        }
+
+        $data["totalRanThisWeek"] = $totalRanThisWeek;
+
+        return $data;
     }
 }

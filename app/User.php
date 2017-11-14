@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Activity;
 use Illuminate\Support\Carbon;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User  extends Authenticatable
 {
@@ -52,6 +53,25 @@ class User  extends Authenticatable
             ->selectRaw('user_id, sum(moving_time) as sum_time')
             ->groupBy('user_id')
             ->where('created_at', '>=', Carbon::now()->subDay(7));
+    }
+
+    public function getRanPreviousWeek() {
+        $monday = Carbon::now()->subDay(7)->startOfWeek();
+        $sunday = Carbon::now()->subDay(7)->endOfWeek();
+
+        return Auth::user()->activities
+            ->where('start_date', '>=', $monday)
+            ->where('start_date', '<=', $sunday);
+    }
+
+
+    public function getRanThisWeek() {
+        $monday = Carbon::now()->startOfWeek();
+        $sunday = Carbon::now()->endOfWeek();
+
+        return Auth::user()->activities
+            ->where('start_date', '>=', $monday)
+            ->where('start_date', '<=', $sunday);
     }
 
 }
