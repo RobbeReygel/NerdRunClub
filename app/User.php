@@ -20,6 +20,10 @@ class User  extends Authenticatable
         return $this->hasMany('App\Activity');
     }
 
+    public function medals() {
+        return $this->hasMany('App\Medal');
+    }
+
     public function lastActivity() {
         return $this->hasMany('App\Activity')
             ->orderBy('created_at', 'desc');
@@ -67,7 +71,7 @@ class User  extends Authenticatable
         $monday = Carbon::now()->subDay(7)->startOfWeek();
         $sunday = Carbon::now()->subDay(7)->endOfWeek();
 
-        return Auth::user()->activities
+        return $this->activities
             ->where('start_date', '>=', $monday)
             ->where('start_date', '<=', $sunday);
     }
@@ -77,7 +81,7 @@ class User  extends Authenticatable
         $monday = Carbon::now()->startOfWeek();
         $sunday = Carbon::now()->endOfWeek();
 
-        return Auth::user()->activities
+        return $this->activities
             ->where('start_date', '>=', $monday)
             ->where('start_date', '<=', $sunday);
     }

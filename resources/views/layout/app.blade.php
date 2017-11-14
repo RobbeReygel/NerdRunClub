@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="https://use.fontawesome.com/ef9fae15ba.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
