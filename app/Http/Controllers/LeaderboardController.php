@@ -38,7 +38,11 @@ class LeaderboardController extends Controller
 
             if($dayslist < 7) {
                 $res = $u;
-                $res->totalDistanceWeekly = $u->totalDistanceWeekly[0]->sum_distance;
+                if (array_key_exists(0, $u->totalDistanceWeekly)) {
+                    $res->totalDistanceWeekly = $u->totalDistanceWeekly[0]->sum_distance;
+                } else {
+                    $res->totalDistanceWeekly = 0;
+                }
                 $list[] = $res;
             }else{
                 $res = $u;
