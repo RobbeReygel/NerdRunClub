@@ -176,16 +176,7 @@ section.indexContent h1{
   color: white;
 }
 nav.textLogo{
-  width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
-  padding-left: 5em;
-  padding-top: 1em;
-}
-nav.textLogo a{
-  color: $primary-color;
+  display: none;
 }
 
 @media (min-width: 480px) {
@@ -206,6 +197,18 @@ nav.textLogo a{
 
   section.indexContent h1{
     font-size: 2.4em;
+  }
+  nav.textLogo{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    padding-left: 5em;
+    padding-top: 1em;
+  }
+  nav.textLogo a{
+    color: $primary-color;
   }
 
 }
