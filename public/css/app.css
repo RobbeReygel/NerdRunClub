@@ -8528,3 +8528,119 @@ p#name {
   font-weight: bold;
 }
 
+div.bgContainer {
+  background-color: black;
+  background-image: url(/images/runningBg.png?9cf5214d369821f59157d44ca864e856);
+  background-position: left;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+a.animated-button:link,
+a.animated-button:visited {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  padding: 1.2em 5em;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  border-radius: 0;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+a.animated-button:link:after,
+a.animated-button:visited:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  z-index: -1;
+  -webkit-transition: all 0.75s ease 0s;
+  transition: all 0.75s ease 0s;
+}
+
+a.animated-button:link:hover,
+a.animated-button:visited:hover {
+  color: #FFF;
+  text-shadow: none;
+}
+
+a.animated-button:link:hover:after,
+a.animated-button:visited:hover:after {
+  height: 450%;
+}
+
+/* Victoria Buttons */
+
+a.animated-button.victoria-two {
+  border: 2px solid #e77e21;
+}
+
+a.animated-button.victoria-two:after {
+  background: #e77e21;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+
+section.indexContent {
+  padding-top: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+section.indexContent h1 {
+  font-size: 1.8em;
+  color: white;
+}
+
+nav.textLogo {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  padding-left: 5em;
+  padding-top: 1em;
+}
+
+nav.textLogo a {
+  color: #e77e21;
+}
+
+@media (min-width: 480px) {
+  section.indexContent {
+    padding-top: 15%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  a.animated-button:link,
+  a.animated-button:visited {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.3em 7em;
+    margin-top: 10em;
+  }
+
+  section.indexContent h1 {
+    font-size: 2.4em;
+  }
+}
+
