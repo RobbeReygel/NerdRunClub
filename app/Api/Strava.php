@@ -53,23 +53,21 @@ class Strava
         return \GuzzleHttp\json_decode($res->getBody()->getContents());
     }
 
-    public function updateUserActivities()
+
+    public function updateUserActivities($u)
     {
 
-        $users = User::all();
+        $user = $u;
 
-        foreach ($users as $user) {
-            $activities = Strava::get('athlete/activities', ['query' => 'access_token=' . $user->token]);
-            foreach ($activities as $activity) {
-                Activity::updateOrCreate(
-                    ['activityId' => $activity->id],
-                    ['name' => $activity->name, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
-                );
+        $activities = Strava::get('athlete/activities', ['query' => 'access_token=' . $user->token]);
+        foreach ($activities as $activity) {
+            Activity::updateOrCreate(
+                ['activityId' => $activity->id],
+                ['name' => $activity->name, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
+            );
 
-                //TODO remove activities from database when removed in Strava
-                //Activity::where('activityId', "!=" , $apiResult->id)->delete();
-
-            }
+            //TODO remove activities from database when removed in Strava
+            //Activity::where('activityId', "!=" , $apiResult->id)->delete();
 
         }
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
+use App\Api\Strava;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
@@ -70,6 +72,9 @@ class DashboardController extends Controller
         });
 
         $list = array_slice($list, 0, 3);
+
+        $strava = new Strava();
+        $strava->updateUserActivities($user);
 
         return view('dashboard', compact('user', 'list', 'days'));
     }

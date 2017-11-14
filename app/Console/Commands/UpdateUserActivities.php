@@ -39,14 +39,10 @@ class UpdateUserActivities extends Command
      */
     public function handle()
     {
-        /*
+
         foreach (User::all() as $user) {
-            $strava = new Strava($user->token);
-            $strava->updateUserActivities();
+            $strava = new Strava();
+            $strava->updateUserActivities($user);
         }
-        */
-        $token = "memes";
-        $strava = new Strava($token);
-        $strava->updateUserActivities();
     }
 }
