@@ -86,15 +86,37 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="total-distance">
-                                <p>
+                                <p class="value">
                                     {{ $user->totalDistanceWeekly[0]->sum_distance / 1000 }}KM
+                                </p>
+                                <p class="evolution">
+                                    @if ($goal['totalRanThisWeek'] > $goal['totalRanPreviousWeek'])
+                                        @if ($goal['totalRanPreviousWeek'] == 0)
+                                            <i class="fa fa-arrow-up evolution-positive"></i> +{{ $goal['totalRanThisWeek'] }}%
+                                        @else
+                                            <i class="fa fa-arrow-up evolution-positive"></i> +{{ abs(round(($goal['totalRanPreviousWeek'] - $goal['totalRanThisWeek']) / $goal['totalRanPreviousWeek'] * 100)) }}%
+                                        @endif
+                                    @else
+                                        <i class="fa fa-arrow-down evolution-negative"></i> -{{ abs(round(($goal['totalRanPreviousWeek'] - $goal['totalRanThisWeek']) / $goal['totalRanPreviousWeek'] * 100)) }}%
+                                    @endif
                                 </p>
                                 <span>Total ran this week</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="total-time">
-                                <p>{{ gmdate("H:i", $user->totalTimeWeekly[0]->sum_time) }}</p>
+                                <p class="value">{{ gmdate("H:i", $user->totalTimeWeekly[0]->sum_time) }}</p>
+                                <p class="evolution">
+                                    @if ($goal['totalTimeThisWeek'] > $goal['totalTimePreviousWeek'])
+                                        @if ($goal['totalRanPreviousWeek'] == 0)
+                                            <i class="fa fa-arrow-up evolution-positive"></i> +{{ $goal['totalRanThisWeek'] }}%
+                                        @else
+                                            <i class="fa fa-arrow-up evolution-positive"></i> +{{ abs(round(($goal['totalTimePreviousWeek'] - $goal['totalTimeThisWeek']) / $goal['totalTimePreviousWeek'] * 100)) }}%
+                                        @endif
+                                    @else
+                                        <i class="fa fa-arrow-down evolution-negative"></i> -{{ abs(round(($goal['totalTimePreviousWeek'] - $goal['totalTimeThisWeek']) / $goal['totalTimePreviousWeek'] * 100)) }}%
+                                    @endif
+                                </p>
                                 <span>Total time this week</span>
                             </div>
                         </div>
@@ -113,7 +135,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="total-distance">
-                <p>
+                <p class="value">
                     {{ $user->totalDistance[0]->sum_distance/1000 }}KM
                 </p>
                 <span>Total ran all time</span>
@@ -121,7 +143,7 @@
         </div>
         <div class="col-md-6">
             <div class="total-time">
-                <p>{{ gmdate("H:i", $user->totalTime[0]->sum_time) }}</p>
+                <p class="value">{{ gmdate("H:i", $user->totalTime[0]->sum_time) }}</p>
                 <span>Total time all time</span>
             </div>
         </div>

@@ -77,6 +77,17 @@
 <div class="container">
     @yield('content')
 </div>
-
+<footer>
+    <div class="footer-light">
+        <div class="creators">
+            <img src="https://scontent.fbru2-1.fna.fbcdn.net/v/t1.0-9/10392467_713002862142196_4646838072861789543_n.jpg?oh=bd565f52481b1218879db82a4a52f2b7&oe=5A623ED1" alt="Sören">
+            <img src="https://scontent.fbru2-1.fna.fbcdn.net/v/t1.0-1/22007587_1738030626238466_5930106369545113792_n.jpg?oh=921f7e896db5bd280283e6d997c396ad&oe=5AA90BAC" alt="Robbe">
+            <img src="https://lh3.googleusercontent.com/-THJg6ksDnxs/AAAAAAAAAAI/AAAAAAAAAo0/PYtJUwRjQjA/photo.jpg" alt="Pieterjan">
+        </div>
+    </div>
+    <div class="footer-dark">
+        &copy; {{ date('Y') }} Ofzoiets
+    </div>
+</footer>
 </body>
 </html>

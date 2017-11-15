@@ -10348,14 +10348,56 @@ body {
   text-align: center;
 }
 
-.total-distance p, .total-time p {
+.total-distance p.value, .total-time p.value {
   font-weight: bold;
   font-size: 4em;
   margin: 0;
 }
 
+.total-distance p.evolution, .total-time p.evolution {
+  margin: -20px 0 20px 0;
+  opacity: .5;
+}
+
+.total-distance p.evolution .evolution-positive, .total-time p.evolution .evolution-positive {
+  color: #2ecc71;
+}
+
+.total-distance p.evolution .evolution-negative, .total-time p.evolution .evolution-negative {
+  color: #e74c3c;
+}
+
 .total-distance span, .total-time span {
   display: block;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+footer .footer-light {
+  background-color: #2a2a2a;
+  padding: 30px 0;
+}
+
+footer .footer-light .creators {
+  text-align: center;
+}
+
+footer .footer-light .creators img {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: -15px;
+  border: 5px solid #2a2a2a;
+}
+
+footer .footer-dark {
+  text-align: center;
+  background-color: #222222;
+  color: #a0a0a0;
+  padding: 10px 0;
 }
 
 body {
