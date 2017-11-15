@@ -29,3 +29,6 @@ Route::get('/medals', 'MedalController@index')->name('medals');
 Route::get('/markAsRead',function(){
     auth()->user()->unreadNotifications->markAsRead();
 });
+Route::get('/users', 'UserController@index')->name('users');
+Route::get('/user/{user}', 'UserController@show')->name('user');
+Route::post('/user/{user}','FriendController@create');
