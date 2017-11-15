@@ -93,13 +93,17 @@ class DashboardController extends Controller
         $thisWeek = $user->getRanThisWeek();
 
         $totalRanPreviousWeek = 0;
+        $totalTimePreviousWeek = 0;
         foreach ($previouwWeek as $a) {
             $totalRanPreviousWeek += $a->distance;
+            $totalTimePreviousWeek += $a->moving_time;
         }
 
         $totalRanThisWeek = 0;
+        $totalTimeThisWeek = 0;
         foreach ($thisWeek as $a) {
             $totalRanThisWeek += $a->distance;
+            $totalTimeThisWeek += $a->moving_time;
         }
 
         $goalThisWeek = round(($totalRanPreviousWeek * 1.1) / 1000);
@@ -109,6 +113,9 @@ class DashboardController extends Controller
         $goalNextWeek = round($goalThisWeek + ($totalRanThisWeek * .3) / 1000);
 
         $data["totalRanThisWeek"] = $totalRanThisWeek;
+        $data["totalRanPreviousWeek"] = $totalRanPreviousWeek;
+        $data["totalTimeThisWeek"] = $totalTimeThisWeek;
+        $data["totalTimePreviousWeek"] = $totalTimePreviousWeek;
         $data["goalThisWeek"] = $goalThisWeek;
         $data["goalNextWeek"] = $goalNextWeek;
 

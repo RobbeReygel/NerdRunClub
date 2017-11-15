@@ -42545,9 +42545,15 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
+<<<<<<< HEAD
     hotAPI.createRecord("data-v-54a6328e", Component.options)
   } else {
     hotAPI.reload("data-v-54a6328e", Component.options)
+=======
+    hotAPI.createRecord("data-v-50ceda9a", Component.options)
+  } else {
+    hotAPI.reload("data-v-50ceda9a", Component.options)
+>>>>>>> 830bcf8c4e3e237980a154cf4589878c90017f14
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -42734,7 +42740,11 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
+<<<<<<< HEAD
     require("vue-hot-reload-api")      .rerender("data-v-54a6328e", module.exports)
+=======
+    require("vue-hot-reload-api")      .rerender("data-v-50ceda9a", module.exports)
+>>>>>>> 830bcf8c4e3e237980a154cf4589878c90017f14
   }
 }
 
