@@ -25,13 +25,13 @@
         <div id="week">
             <h4 class="inbox">Deze week</h4>
             @if ($days < 7)
-                @if (array_key_exists(0, $user->totalDistanceWeekly))
-                <p id="totalrun">{{ $user->totalDistanceWeekly[0]->sum_distance / 1000 }}km</p>
-                <p id="totaltime">{{ gmdate("H:i", $user->totalTimeWeekly[0]->sum_time) }} uur</p>
-                    @else
+                @if (isset($user->totalDistanceWeekly[0]->sum_distance))
+                    <p id="totalrun">{{ $user->totalDistanceWeekly[0]->sum_distance / 1000 }}km</p>
+                    <p id="totaltime">{{ gmdate("H:i", $user->totalTimeWeekly[0]->sum_time) }} uur</p>
+                @else
                     <p id="totalrun">0km</p>
                     <p id="totaltime">00:00 uur</p>
-                    @endif
+                @endif
             @else
                 <p id="totalrun">0km</p>
                 <p id="totaltime">0 uur</p>

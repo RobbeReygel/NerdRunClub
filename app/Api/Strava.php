@@ -26,6 +26,13 @@ class Strava
         return \GuzzleHttp\json_decode($content);
     }
 
+    public static function post($url, $config)
+    {
+        $result = self::$client->post($url, $config);
+        $content = $result->getBody()->getContents();
+        return \GuzzleHttp\json_decode($content);
+    }
+
     public static function redirectToStrava()
     {
         return 'https://www.strava.com/oauth/authorize' .
