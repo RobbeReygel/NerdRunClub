@@ -57,6 +57,7 @@ class GiveMedals extends Command
             $goalThisWeek = round(($totalRanPreviousWeek * 1.1) / 1000);
             if ($goalThisWeek < 3)
                 $goalThisWeek = 3;
+
             $perc = round(($totalRanThisWeek / 1000) / $goalThisWeek * 100);
 
             if ($perc >= 25 && $perc < 50) {
