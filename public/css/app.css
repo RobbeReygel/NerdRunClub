@@ -10226,7 +10226,41 @@ body {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
-  margin: 20px 0;
+  margin: 15px 0;
+}
+
+.user-progress .line {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  font-weight: bold;
+  height: 200px;
+  opacity: .4;
+}
+
+.user-progress .line::after {
+  position: absolute;
+  content: '';
+  height: 145px;
+  width: 1px;
+  background-color: #ffffff;
+  color: #fff;
+  top: 25px;
+  opacity: .5;
+  left: 13px;
+}
+
+.user-progress .line p:not(.bottom) {
+  color: #fff;
+  margin-top: 3px;
+}
+
+.user-progress .line .bottom {
+  position: absolute;
+  left: 4px;
+  bottom: 0;
+  margin-bottom: 5px;
+  opacity: 1;
 }
 
 .user-progress .inner {
@@ -10244,7 +10278,7 @@ body {
 
 .user-progress .progress-info {
   text-align: center;
-  margin: 65px 0;
+  margin: 55px 0;
   position: relative;
   z-index: 50;
 }
@@ -10261,6 +10295,67 @@ body {
   display: block;
   font-size: .9em;
   color: #FFF;
+}
+
+.medal.medal-icon {
+  height: 20px;
+  width: auto;
+}
+
+.medal.medal-full {
+  height: 100px;
+  width: 100px;
+}
+
+.trophy-case {
+  background-color: #2a2a2a;
+  position: relative;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.trophy-case p {
+  margin: 0;
+  color: #5e5e5e;
+}
+
+.trophy-case h3 {
+  margin-bottom: 0;
+  color: #FFF;
+}
+
+.weekly-report {
+  margin: 30px 0;
+}
+
+.weekly-report h2 {
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.total-distance, .total-time {
+  background-color: #2a2a2a;
+  position: relative;
+  border-radius: 5px;
+  padding: 40px 0;
+  margin: 15px 0;
+  color: #e5e5e5;
+  text-align: center;
+}
+
+.total-distance p, .total-time p {
+  font-weight: bold;
+  font-size: 4em;
+  margin: 0;
+}
+
+.total-distance span, .total-time span {
+  display: block;
 }
 
 body {
