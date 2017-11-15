@@ -1,6 +1,33 @@
 body {
-  background-color: #2e2e2e;
+  background-color: #333333;
   color: #c0c0c0;
+}
+
+.title {
+  background: url("../images/header.jpeg") center center;
+  background-size: cover;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(42, 42, 42, 0.80);
+    content: "";
+  }
+
+  h1 {
+    z-index: 1;
+    position: relative;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 22px 0;
+    padding: 50px 0;
+    text-align: center;
+  }
 }
 
 .navbar-default {
@@ -10,6 +37,7 @@ body {
 
 .navbar {
   border-radius: 0;
+  margin-bottom: 0;
 }
 
 .navbar-default .navbar-brand {
@@ -37,4 +65,79 @@ body {
   &:hover {
     color: #c0c0c0;
   }
+}
+
+.user-overview {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 5px;
+  height: 200px;
+  margin: 20px 0;
+
+  img {
+    float: left;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin: 5px 10px;
+  }
+
+  .user-info {
+    display: inline-block;
+    margin-left: 30px;
+
+    p {
+      color: #efefef;
+
+      span {
+        margin-left: 10px;
+      }
+    }
+
+    h3 {
+      margin: 10px 0 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #efefef;
+    }
+  }
+}
+
+.user-progress {
+  height: 200px;
+  background-color: #2a2a2a;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px 0;
+
+  .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    background-color: $primary-color;
+  }
+
+  .progress-info  {
+    text-align: center;
+    margin: 65px 0;
+    position: relative;
+    z-index: 50;
+
+    p {
+      font-size: 2em;
+      color: #FFF;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    span {
+      display: block;
+      font-size: .9em;
+      color: #FFF;
+    }
+  }
+
 }

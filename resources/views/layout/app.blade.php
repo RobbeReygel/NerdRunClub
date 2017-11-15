@@ -70,6 +70,10 @@
         </div>
     </div>
 </nav>
+
+<div class="title">
+    <h1>DASHBOARD</h1>
+</div>
 <div class="container">
     @yield('content')
 </div>

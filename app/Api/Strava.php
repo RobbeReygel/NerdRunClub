@@ -41,6 +41,7 @@ class Strava
             '&response_type=code' .
             '&approval_prompt=auto' .
             '&scope=public';
+
     }
 
     public static function finalizeLogin($code)

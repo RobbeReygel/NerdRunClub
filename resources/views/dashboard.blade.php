@@ -1,27 +1,42 @@
 @extends ('../layout/app')
 
 @section('content')
-        <div id="week">
-            <h4 class="inbox">Weekelijkse vooruitgang</h4>
-            <p class="this-week">Deze week: {{ $goal['totalRanThisWeek'] / 1000 }}km / {{ $goal['goalThisWeek'] }}km</p>
-            <div class="weekly-goal">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="user-overview">
+                <img src="{{ $user->avatar }}" alt="">
+                <div class="user-info">
+                    <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
+                    <p>🥇 <span>{{ count($user->medals->where('type', 'gold')) }}</span></p>
+                    <p>🥈 <span>{{ count($user->medals->where('type', 'silver')) }}</span></p>
+                    <p>🥉 <span>{{ count($user->medals->where('type', 'bronze')) }}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="user-progress">
                 @if ($goal['totalRanThisWeek'] == 0)
                     <div class="inner" style="width: 0%">
 
                     </div>
-                    <p>0%</p>
+                    <div class="progress-info">
+                        <p>0 / {{ $goal['goalThisWeek'] }}KM</p>
+                        span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
+                    </div>
                 @else
-                    <div class="inner" style="width: {{ round(($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek'] * 100) }}%">
+                    <div class="inner" style="width: {{ round((($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek']) * 100) }}%">
 
                     </div>
-                    <p>{{ round(($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek'] * 100) }}%</p>
+                    <div class="progress-info">
+                        <p>{{ round(($goal['totalRanThisWeek'] / 1000), 2) }} / {{ $goal['goalThisWeek'] }}KM</p>
+                        <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
+                    </div>
                 @endif
             </div>
-            <p class="next-week">Volgende week: {{ $goal['goalNextWeek'] }}km lopen</p>
         </div>
+    </div>
 
     @if (isset($user->totalDistance[0]->sum_distance))
-
         <div id="week">
             <h4 class="inbox">Deze week</h4>
             @if ($days < 7)
@@ -43,7 +58,6 @@
             <p id="totalrun">{{ $user->totalDistance[0]->sum_distance/1000 }}km</p>
             <p id="totaltime">{{ gmdate("H:i", $user->totalTime[0]->sum_time) }} uur</p>
         </div>
-
     @else
 
         <div id="week">
