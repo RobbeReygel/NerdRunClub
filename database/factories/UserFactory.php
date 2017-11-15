@@ -1,6 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use Carbon\Carbon;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +30,9 @@ $factory->define(App\User::class, function (Faker $faker) {
 });
 
 $factory->define(App\Activity::class, function (Faker $faker) {
-
-    $date = $faker->date($format = 'Y-m-d', $max = 'now');
+    $year = Carbon::now()->year;
+    $month = Carbon::now()->month;
+    $date = $year.'-'.$month.'-'.mt_rand(1, 30);
     $t = "T";
     $time = $faker->time($format = 'H:i:s', $max = 'now');
     $z = "Z";
