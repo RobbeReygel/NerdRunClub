@@ -24,10 +24,10 @@
                 <span class="icon-bar"></span>
             </button>
             @guest
-                <a class="navbar-brand" href="/">NerdRunClub</a>
+                <a class="navbar-brand" href="/">NRC</a>
             @endguest
             @auth
-            <a class="navbar-brand" href="/dashboard">NerdRunClub</a>
+            <a class="navbar-brand" href="/dashboard">NRC</a>
             @endauth
         </div>
         <div id="navbar" class="navbar-collapse collapse">

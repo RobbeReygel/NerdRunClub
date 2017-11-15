@@ -25,8 +25,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('activities:update')->hourly();
+        $schedule->command('activities:update')->hourlyAt(0, 30);
         $schedule->command('notifications:update')->daily();
+        $schedule->command('medals:give')->cron('0 23 * * 7');
     }
 
     /**
