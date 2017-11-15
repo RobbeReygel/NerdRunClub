@@ -72,7 +72,7 @@
 </nav>
 
 <div class="title">
-    <h1>DASHBOARD</h1>
+    <h1>{{ \Request::route()->getName() }}</h1>
 </div>
 <div class="container">
     @yield('content')
