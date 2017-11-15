@@ -36,6 +36,16 @@
         </div>
     </div>
 
+    <div class="ran-this-week">
+        @foreach($user->getRanThisWeek() as $run)
+            <p>
+                {{ $run->name }}
+                {{ $run->distance }}
+                {{ $run->start_date }}
+            </p>
+        @endforeach
+    </div>
+
     @if (isset($user->totalDistance[0]->sum_distance))
         <div id="week">
             <h4 class="inbox">Deze week</h4>

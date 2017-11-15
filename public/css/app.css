@@ -3718,7 +3718,7 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  color: #2F4F4F;
+  color: #ff2000;
   background-color: #f5f8fa;
 }
 
@@ -5371,7 +5371,7 @@ output {
   color: #555555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #8ebcbc;
+  border: 1px solid #ffd2cc;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -5390,16 +5390,16 @@ output {
 }
 
 .form-control::-moz-placeholder {
-  color: #6ea9a9;
+  color: #ffa699;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #6ea9a9;
+  color: #ffa699;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #6ea9a9;
+  color: #ffa699;
 }
 
 .form-control::-ms-expand {
@@ -5840,7 +5840,7 @@ select[multiple].input-lg,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #5f9f9f;
+  color: #ff9080;
 }
 
 @media (min-width: 768px) {
@@ -5976,7 +5976,7 @@ select[multiple].input-lg,
 }
 
 .btn:hover, .btn:focus, .btn.focus {
-  color: #2F4F4F;
+  color: #ff2000;
   text-decoration: none;
 }
 
@@ -6002,26 +6002,26 @@ fieldset[disabled] a.btn {
 }
 
 .btn-default {
-  color: #2F4F4F;
+  color: #ff2000;
   background-color: #fff;
   border-color: #ccc;
 }
 
 .btn-default:focus, .btn-default.focus {
-  color: #2F4F4F;
+  color: #ff2000;
   background-color: #e6e5e5;
   border-color: #8c8c8c;
 }
 
 .btn-default:hover {
-  color: #2F4F4F;
+  color: #ff2000;
   background-color: #e6e5e5;
   border-color: #adadad;
 }
 
 .btn-default:active, .btn-default.active,
 .open > .btn-default.dropdown-toggle {
-  color: #2F4F4F;
+  color: #ff2000;
   background-color: #e6e5e5;
   border-color: #adadad;
 }
@@ -6030,7 +6030,7 @@ fieldset[disabled] a.btn {
 .open > .btn-default.dropdown-toggle:hover,
 .open > .btn-default.dropdown-toggle:focus,
 .open > .btn-default.dropdown-toggle.focus {
-  color: #2F4F4F;
+  color: #ff2000;
   background-color: #d4d4d4;
   border-color: #8c8c8c;
 }
@@ -6050,7 +6050,7 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-default .badge {
   color: #fff;
-  background-color: #2F4F4F;
+  background-color: #ff2000;
 }
 
 .btn-primary {
@@ -6848,7 +6848,7 @@ tbody.collapse.in {
   color: #555555;
   text-align: center;
   background-color: #eeeeee;
-  border: 1px solid #8ebcbc;
+  border: 1px solid #ffd2cc;
   border-radius: 4px;
 }
 
@@ -8098,7 +8098,7 @@ a.badge:hover, a.badge:focus {
 
 .thumbnail .caption {
   padding: 9px;
-  color: #2F4F4F;
+  color: #ff2000;
 }
 
 a.thumbnail:hover,
@@ -10234,7 +10234,12 @@ body {
   top: 0;
   left: 0;
   height: 200px;
-  background-color: #e77e21;
+  background: #e77e21;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #e77e21 0%, #ff2000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .user-progress .progress-info {
