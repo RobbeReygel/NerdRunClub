@@ -36,7 +36,7 @@ class Strava
     public static function redirectToStrava()
     {
         return 'https://www.strava.com/oauth/authorize' .
-            '?client_id=20586' .
+            '?client_id=' . self::$client_id .
             '&redirect_uri=' . env('STRAVA_REDIRECT') .
             '&response_type=code' .
             '&approval_prompt=auto' .
