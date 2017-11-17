@@ -36,15 +36,7 @@ class DashboardController extends Controller
         $strava = new Strava();
         $strava->updateUserActivities($user);
 
-        $fdate = $user->lastActivity->first()->created_at;
-        $tdate = Carbon::now();
-
-        $datetime1 = new DateTime($fdate);
-        $datetime2 = new DateTime($tdate);
-        $interval = $datetime1->diff($datetime2);
-        $days = $interval->format('%a');
-
-
+        /*
         $users = User::has('activities')->get();
         $list = array();
 
@@ -80,9 +72,9 @@ class DashboardController extends Controller
             return $a->totalDistanceWeekly < $b->totalDistanceWeekly ? 1 : -1; // Might need to switch 1 and -1
         });
 
-        $list = array_slice($list, 0, 3);
+        */
 
-        return view('dashboard', compact('user', 'list', 'days', 'goal'));
+        return view('dashboard', compact('user', 'goal'));
     }
 
     public function getWeeklyGoal() {
