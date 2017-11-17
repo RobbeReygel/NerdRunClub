@@ -52,8 +52,8 @@ class Strava
             'POST',
             'oauth/token',
             ['query' => http_build_query([
-                "client_id" => "20586",
-                "client_secret" => "a330975d3dfb689a84cb382d18d1dbc0e85392c3",
+                "client_id" => self::$client_id,
+                "client_secret" => self::$client_secret,
                 "code" => $code
             ])]
         );
