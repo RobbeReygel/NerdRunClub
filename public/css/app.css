@@ -10169,6 +10169,10 @@ body {
   color: #c0c0c0;
 }
 
+.navbar-default .navbar-brand img {
+  width: 35px;
+}
+
 .navbar-default .navbar-nav > li.dropdown > a {
   padding-right: 0;
 }
