@@ -24,6 +24,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
     end
 
+    config.ssh.forward_agent = true
+
     if File.exist? homesteadYamlPath then
         settings = YAML::load(File.read(homesteadYamlPath))
     elsif File.exist? homesteadJsonPath then
