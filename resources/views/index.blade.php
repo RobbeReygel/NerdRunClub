@@ -17,7 +17,7 @@
 
 <div class="hero">
     <div class="center">
-        <h1>Deze tekst wordt een sterke en mooie motivatie slogan</h1>
+        <h1>We challenge ourselves! #nerdrunners #weareimd</h1>
         <!-- <a href="{{ route('auth.redirect') }}" class="btn btn-sm animated-button victoria-two">Login</a> -->
         <a href="{{ route('auth.redirect') }}">Login with strava</a>
     </div>

@@ -1,12 +1,19 @@
 .profile {
   .profile__info {
     text-align: center;
-    margin: 50px 0;
+    margin: 70px 0 55px 0;
+    color: white;
+    font-size: 1.2em;
 
     img {
-      height: 200px;
-      width: 200px;
+      height: 250px;
+      width: 250px;
       border-radius: 50%;
+      border: 15px solid $primary-color;
+      transition: all 0.5s;
+    }
+    img:hover{
+      border: 15px solid $secondary-color;
     }
 
     .profile__name {

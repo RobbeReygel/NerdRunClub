@@ -10056,13 +10056,22 @@ button.close {
 
 .profile .profile__info {
   text-align: center;
-  margin: 50px 0;
+  margin: 70px 0 55px 0;
+  color: white;
+  font-size: 1.2em;
 }
 
 .profile .profile__info img {
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
+  border: 15px solid #e77e21;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.profile .profile__info img:hover {
+  border: 15px solid #ff2000;
 }
 
 .profile .profile__info .profile__name {
@@ -10078,14 +10087,18 @@ button.close {
   margin: 0;
 }
 
-#leaderboard img {
+.leaderboard {
+  margin-top: 50px;
+}
+
+.leaderboard img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   margin-right: 25px;
 }
 
-#leaderboard ul {
+.leaderboard ul {
   list-style-type: none;
   padding: 0;
   margin-left: auto;
@@ -10093,26 +10106,33 @@ button.close {
   width: 93%;
 }
 
-#leaderboard li {
+.leaderboard li {
   margin-bottom: 25px;
   background-color: #e77e21;
   padding: 1.2em 0;
   color: white;
-  -webkit-box-shadow: 0 2px 5px grey;
-          box-shadow: 0 2px 5px grey;
   list-style-type: none;
 }
 
-#leaderboard h3 {
+.leaderboard h3 {
   display: inline-block;
-  width: 10%;
+  width: 60px;
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
 }
 
-#leaderboard span {
+.leaderboard span {
   font-size: 1.1em;
+}
+
+@media (min-width: 480px) {
+  .leaderboard {
+    font-size: 1.2em;
+  }
+  .leaderboard h3 {
+    width: 150px;
+  }
 }
 
 body {
@@ -10481,30 +10501,44 @@ h2 {
 
 .activityList {
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding: 0;
-  background-color: white;
+  background-color: #5e5e5e;
 }
 
-.activityList .activityList-item {
-  padding: 0.6em 1.2em;
+.activityList-item {
+  padding: 2em 0;
   list-style-type: none;
-  border-bottom: 1px solid lightgrey;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.activityList-item:first-child {
+  border-right: 1px solid #2a2a2a;
 }
 
 h4.activityList-head {
   background-color: #e77e21;
   color: white;
   margin: 0;
-  padding: 0.6em 1em;
+  padding: 1em 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2em;
 }
 
-#activity {
+.activity {
   width: 93%;
   margin-left: auto;
   margin-right: auto;
-  -webkit-box-shadow: 0 2px 5px lightgrey;
-          box-shadow: 0 2px 5px lightgrey;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
+  color: white;
+  margin-top: 40px;
 }
 
 #totalrun, #totaltime {
@@ -10686,6 +10720,61 @@ nav.textLogo a {
   margin-right: auto;
 }
 
+.users {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.users form.form-add {
+  width: 100%;
+  display: block;
+  margin: 20px 0;
+}
+
+.users form.form-add button.add-friend {
+  margin-top: 30px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  padding: 20px 40px;
+  color: #FFF;
+  background-color: #e77e21;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 0;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.users form.form-add button.add-friend:hover {
+  background-color: #ff2000;
+}
+
+.avatar {
+  border: 15px solid #e77e21;
+  border-radius: 50%;
+  background-color: black;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.avatar:hover {
+  border: 15px solid #ff2000;
+}
+
 @media (min-width: 480px) {
   section.indexContent {
     padding-top: 15%;
@@ -10709,6 +10798,27 @@ nav.textLogo a {
   }
   nav.textLogo a {
     color: #e77e21;
+  }
+  .activity {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .users {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .avatar {
+    margin: 0;
   }
 }
 
