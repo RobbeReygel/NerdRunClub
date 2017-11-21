@@ -10528,6 +10528,7 @@ p#name {
 
 div.bgContainer {
   background-color: black;
+  background-image: url("../images/runningBg.png");
   background-position: left;
   background-size: cover;
   width: 100%;
