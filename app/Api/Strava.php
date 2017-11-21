@@ -14,8 +14,8 @@ class Strava
 
     public function __construct()
     {
-        self::$client_secret = "a330975d3dfb689a84cb382d18d1dbc0e85392c3";
-        self::$client_id = "20586";
+        self::$client_secret = env('STRAVA_SECRET');
+        self::$client_id = env('STRAVA_ID');
         self::$client = new Client(['base_uri' => 'https://www.strava.com/api/v3/']);
     }
 
@@ -36,8 +36,8 @@ class Strava
     public static function redirectToStrava()
     {
         return 'https://www.strava.com/oauth/authorize' .
-            '?client_id=20586' .
-            '&redirect_uri=http://192.168.10.10/login/callback' .
+            '?client_id=' . self::$client_id .
+            '&redirect_uri=' . env('STRAVA_REDIRECT') .
             '&response_type=code' .
             '&approval_prompt=auto' .
             '&scope=public';
@@ -52,8 +52,8 @@ class Strava
             'POST',
             'oauth/token',
             ['query' => http_build_query([
-                "client_id" => "20586",
-                "client_secret" => "a330975d3dfb689a84cb382d18d1dbc0e85392c3",
+                "client_id" => self::$client_id,
+                "client_secret" => self::$client_secret,
                 "code" => $code
             ])]
         );

@@ -1,0 +1,1 @@
+<a href="/medals">You've received a new medal! Good job!</a>

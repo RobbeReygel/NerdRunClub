@@ -11,19 +11,16 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
     <script src="https://use.fontawesome.com/ef9fae15ba.js"></script>
 </head>
 <body>
 
-<div class="bgContainer">
-    <section class="indexContent">
-    <h1>Deze tekst wordt een mooie motivatie slogan</h1>
-    <div class=""> <a href="{{ route('auth.redirect') }}" class="btn btn-sm animated-button victoria-two">Login</a> </div>
-    </section>
+<div class="hero">
+    <div class="center">
+        <h1>Deze tekst wordt een sterke en mooie motivatie slogan</h1>
+        <!-- <a href="{{ route('auth.redirect') }}" class="btn btn-sm animated-button victoria-two">Login</a> -->
+        <a href="{{ route('auth.redirect') }}">Login with strava</a>
+    </div>
 </div>
-<nav class="textLogo">
-    <a class="navbar-brand" href="/">NerdRunClub</a>
-</nav>
 </body>
 </html>

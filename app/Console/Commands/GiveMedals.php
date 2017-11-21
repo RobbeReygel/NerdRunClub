@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Medal;
+use App\Notifications\MedalReceived;
 use App\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
@@ -67,6 +68,7 @@ class GiveMedals extends Command
                 $medal->long_name = "Weekly reward 25%";
                 $medal->user_id = $user->id;
                 $medal->save();
+                $user->notify(new MedalReceived());
             } else if ($perc >= 50 && $perc < 100) {
                 $medal = new Medal();
                 $medal->type = "silver";
@@ -74,6 +76,7 @@ class GiveMedals extends Command
                 $medal->long_name = "Weekly reward 50%";
                 $medal->user_id = $user->id;
                 $medal->save();
+                $user->notify(new MedalReceived());
             } else if ($perc >= 100 && $perc < 200) {
                 $medal = new Medal();
                 $medal->type = "gold";
@@ -81,6 +84,7 @@ class GiveMedals extends Command
                 $medal->long_name = "Weekly reward 100%";
                 $medal->user_id = $user->id;
                 $medal->save();
+                $user->notify(new MedalReceived());
             } else if ($perc >= 200) {
                 $medal = new Medal();
                 $medal->type = "platinum";
@@ -88,6 +92,7 @@ class GiveMedals extends Command
                 $medal->long_name = "Weekly reward 200%";
                 $medal->user_id = $user->id;
                 $medal->save();
+                $user->notify(new MedalReceived());
             }
         }
     }
