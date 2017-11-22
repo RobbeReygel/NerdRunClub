@@ -5,5 +5,6 @@
     ssh-add ~/.ssh/git
     cd /home/nerdrunners
     git pull origin master
-    php artisan migrate:refresh
+    php artisan migrate
+    npm run production
 @endtask
