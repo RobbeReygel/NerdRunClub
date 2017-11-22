@@ -10207,6 +10207,33 @@ body {
   color: #c0c0c0;
 }
 
+.dropdown > .dropdown-menu {
+  background-color: #e9e9e9;
+  text-transform: uppercase;
+  padding: 0;
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid #252525;
+}
+
+.dropdown > .dropdown-menu > li {
+  border-radius: 0;
+}
+
+.dropdown > .dropdown-menu > li > a {
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  border-radius: 0;
+}
+
+.dropdown > .dropdown-menu > li > a:hover {
+  background-color: #e77e21;
+  text-transform: uppercase;
+}
+
 .user-overview {
   background-color: #2a2a2a;
   padding: 20px;
@@ -10737,6 +10764,9 @@ nav.textLogo a {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .users form.form-add {
@@ -10769,7 +10799,6 @@ nav.textLogo a {
 .avatar {
   border: 15px solid #e77e21;
   border-radius: 50%;
-  background-color: black;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   width: 250px;
@@ -10811,23 +10840,6 @@ nav.textLogo a {
     font-size: 1.3em;
     font-weight: bold;
   }
-  .users {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .avatar {
-    margin: 0;
-  }
 }
 
 .weekly-goal {
@@ -10853,4 +10865,24 @@ nav.textLogo a {
   left: 0;
   height: 53px;
   background: #e77e21;
+}
+
+@media (min-width: 570px) {
+  .users {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .avatar {
+    margin: 0;
+  }
 }

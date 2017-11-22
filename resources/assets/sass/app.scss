@@ -218,6 +218,7 @@ nav.textLogo a{
   display: flex;
   flex-direction: column;
   width: 100%;
+  justify-content: center;
 }
 .users form.form-add{
   width: 100%;
@@ -245,7 +246,6 @@ nav.textLogo a{
 .avatar{
   border: 15px solid $primary-color;
   border-radius: 50%;
-  background-color: black;
   transition: all 0.5s;
   width: 250px;
   height: 250px;
@@ -286,16 +286,6 @@ nav.textLogo a{
     font-size: 1.3em;
     font-weight: bold;
   }
-  .users{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .avatar{
-    margin:0;
-  }
-
 }
 
 .weekly-goal {
@@ -320,5 +310,16 @@ nav.textLogo a{
     left: 0;
     height: 53px;
     background: $primary-color;
+  }
+}
+@media (min-width: 570px) {
+  .users{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .avatar{
+    margin:0;
   }
 }
