@@ -10180,7 +10180,6 @@ body {
 .navbar-default .navbar-brand {
   color: #FFF;
   margin-left: 0 !important;
-  padding: 25px 25px 25px 0;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -10487,6 +10486,12 @@ footer .footer-dark {
 .hero .center a:hover {
   text-decoration: none;
   background-color: #e77e21;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    padding: 25px 25px 25px 0;
+  }
 }
 
 body {
