@@ -24,10 +24,10 @@
                 <span class="icon-bar"></span>
             </button>
             @guest
-                <a class="navbar-brand" href="/"><img src="images/logo.svg" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="/images/logo.svg" alt=""></a>
             @endguest
             @auth
-            <a class="navbar-brand" href="/dashboard"><img src="images/logo.svg" alt=""></a>
+            <a class="navbar-brand" href="/dashboard"><img src="/images/logo.svg" alt=""></a>
             @endauth
         </div>
         <div id="navbar" class="navbar-collapse collapse">

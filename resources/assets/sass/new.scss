@@ -362,4 +362,8 @@ footer {
   .navbar-brand {
     padding: 25px 25px 25px 0;
   }
+
+  .navbar-default .navbar-nav > li.dropdown > a {
+    padding-right: 25px;
+  }
 }
