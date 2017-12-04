@@ -3,6 +3,14 @@ body {
   color: #c0c0c0;
 }
 
+.medal-showcase {
+  background-color: #2a2a2a;
+  text-align: center;
+  margin-top: 30px;
+  padding: 40px 0;
+  color: #FFF;
+}
+
 .title {
   background: url("../images/header.jpeg") center center;
   background-size: cover;
@@ -43,7 +51,6 @@ body {
 .navbar-default .navbar-brand {
   color: #FFF;
   margin-left: 0 !important;
-  padding: 25px 25px 25px 0;
   font-weight: bold;
   text-transform: uppercase;
 
@@ -58,6 +65,7 @@ body {
 
 .navbar-default .navbar-nav > li.dropdown > a {
   padding-right: 0;
+
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -69,6 +77,30 @@ body {
   &:hover {
     color: #c0c0c0;
   }
+}
+.dropdown > .dropdown-menu{
+  background-color: #e9e9e9;
+  text-transform: uppercase;
+  padding:0;
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid #252525;
+
+}
+.dropdown > .dropdown-menu > li{
+  border-radius: 0;
+}
+.dropdown > .dropdown-menu > li > a{
+  text-transform: uppercase;
+  transition: all 0.3s;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  border-radius: 0;
+  font-weight: bold;
+}
+.dropdown > .dropdown-menu > li > a:hover{
+  background-color: $primary-color;
+  text-transform: uppercase;
 }
 
 .user-overview {
@@ -351,4 +383,17 @@ footer {
       }
     }
   }
+}
+@media (min-width: 768px) {
+  .navbar-brand {
+    padding: 25px 25px 25px 0;
+  }
+
+  .navbar-default .navbar-nav > li.dropdown > a {
+    padding-right: 25px;
+  }
+}
+
+.test {
+  color: #FFF;
 }

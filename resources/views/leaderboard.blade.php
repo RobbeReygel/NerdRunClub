@@ -1,8 +1,7 @@
 @extends ('layout.app')
 
 @section('content')
-    <h2>Weekly Leaderboard</h2>
-    <div id="leaderboard">
+    <div class="leaderboard">
     <ul>
         @foreach($list as $item)
         @if ($i == 1)

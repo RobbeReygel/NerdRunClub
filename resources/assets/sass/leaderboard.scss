@@ -1,11 +1,14 @@
-#leaderboard img {
+.leaderboard{
+  margin-top: 50px;
+}
+.leaderboard img {
   width: 60px;
   height:60px;
   border-radius: 50%;
   margin-right: 25px;
 }
 
-#leaderboard ul {
+.leaderboard ul {
   list-style-type: none;
   padding: 0;
   margin-left: auto;
@@ -13,23 +16,30 @@
   width: 93%;
 }
 
-
-#leaderboard li {
+.leaderboard li {
   margin-bottom: 25px;
   background-color: #e77e21;
   padding:1.2em 0;
   color: white;
-  box-shadow: 0 2px 5px grey;
   list-style-type: none;
 }
-#leaderboard h3{
+.leaderboard h3{
   display: inline-block;
-  width: 10%;
+  width: 60px;
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
 }
-#leaderboard span{
+.leaderboard span{
   font-size: 1.1em;
+
+}
+@media (min-width: 480px) {
+  .leaderboard{
+    font-size: 1.2em;
+  }
+  .leaderboard h3{
+    width: 150px;
+  }
 
 }

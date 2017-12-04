@@ -10,10 +10,10 @@
         <div class="row">
             @foreach(Auth::user()->medals as $medal)
                 <div class="col-md-3">
-                    <div class="medal">
+                    <div class="medal-showcase">
                         <img class="medal medal-full" src="images/medals/{{ $medal->type }}.png" alt="">
                         <h4>{{ $medal->long_name }}</h4>
-                        <p>{{ \Carbon\Carbon::createFromFormat("D F Y", $medal->create_on) }}</p>
+                        <p>{{date("d F Y", strtotime($medal->created_at)) }}</p>
                     </div>
                 </div>
             @endforeach

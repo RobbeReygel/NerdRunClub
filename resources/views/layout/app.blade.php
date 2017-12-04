@@ -24,10 +24,10 @@
                 <span class="icon-bar"></span>
             </button>
             @guest
-                <a class="navbar-brand" href="/"><img src="images/logo.svg" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="/images/logo.svg" alt=""></a>
             @endguest
             @auth
-            <a class="navbar-brand" href="/dashboard"><img src="images/logo.svg" alt=""></a>
+            <a class="navbar-brand" href="/dashboard"><img src="/images/logo.svg" alt=""></a>
             @endauth
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -46,7 +46,7 @@
 
                         <li class="dropdown" id="markasread" onclick="markNotificationAsRead()">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                <span class="fa fa-bell"> {{ count(auth()->user()->unreadNotifications) }}</span>
+                                <span class="fa fa-bell"> </span> {{ count(auth()->user()->unreadNotifications) }}
                             </a>
 
                             <ul class="dropdown-menu">
@@ -61,7 +61,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->first_name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('profile.index') }}">Profile</a></li>
+                                <li><a href="{{ route('profile') }}">Profile</a></li>
                                 <li><a href="{{ route('auth.logout') }}">Logout</a></li>
                             </ul>
                         </li>

@@ -14,34 +14,43 @@ body {
   color: #2a2a2a;
 }
 
-
 h2{
   color: $primary-color;
   margin-bottom: 50px;
 }
 .activityList{
   margin:0;
+  display: flex;
   padding: 0;
-  background-color: white;
-  .activityList-item{
-    padding: 0.6em 1.2em;
-    list-style-type: none;
-    border-bottom: 1px solid lightgrey;
-  }
+  background-color: #5e5e5e;
+}
+.activityList-item{
+  padding: 2em 0;
+  list-style-type: none;
+  text-align: center;
+  flex-grow: 1;
+}
+.activityList-item:first-child{
+  border-right: 1px solid #2a2a2a;
 }
 
 h4.activityList-head{
   background-color: $primary-color;
   color: white;
   margin: 0;
-  padding:0.6em 1em;
+  padding:1em 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2em;
 }
-#activity{
+.activity{
   width: 93%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 2px 5px lightgrey;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
+  color: white;
+  margin-top: 40px;
 }
 #totalrun, #totaltime{
   width: 50%;
@@ -117,7 +126,7 @@ p#name{
 
 div.bgContainer{
   background-color: black;
-  // background-image: url("../images/runningBg.png");
+  background-image: url("../images/runningBg.png");
   background-position: left;
   background-size: cover;
   width: 100%;
@@ -202,8 +211,50 @@ nav.textLogo a{
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
-}
 
+}
+.users{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+.users form.form-add{
+  width: 100%;
+  display: block;
+  margin: 20px 0;
+}
+.users form.form-add button.add-friend{
+  margin-top: 30px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  padding: 20px 40px;
+  color: #FFF;
+  background-color: $primary-color;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border:0;
+  transition: all .2s ease;
+}
+.users form.form-add button.add-friend:hover{
+  background-color: $secondary-color;
+}
+.avatar{
+  border: 15px solid $primary-color;
+  border-radius: 50%;
+  transition: all 0.5s;
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.avatar:hover{
+  border: 15px solid $secondary-color;
+}
 @media (min-width: 480px) {
   section.indexContent{
     padding-top: 15%;
@@ -230,7 +281,10 @@ nav.textLogo a{
   nav.textLogo a{
     color: $primary-color;
   }
-
+  .activity{
+    font-size: 1.3em;
+    font-weight: bold;
+  }
 }
 
 .weekly-goal {
@@ -255,5 +309,16 @@ nav.textLogo a{
     left: 0;
     height: 53px;
     background: $primary-color;
+  }
+}
+@media (min-width: 570px) {
+  .users{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .avatar{
+    margin:0;
   }
 }
