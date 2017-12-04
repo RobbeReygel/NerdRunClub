@@ -17,7 +17,7 @@ class User  extends Authenticatable
     protected $fillable = ['strava_id', 'first_name', 'last_name', 'sex', 'avatar', 'email', 'token'];
 
     public function activities() {
-        return $this->hasMany('App\Activity');
+        return $this->hasMany('App\Activity')->where('type', 'Run');
     }
 
     public function medals() {
@@ -26,12 +26,14 @@ class User  extends Authenticatable
 
     public function lastActivity() {
         return $this->hasMany('App\Activity')
+            ->where('type', 'Run')
             ->orderBy('created_at', 'desc');
     }
 
     public function totalDistance()
     {
         return $this->hasMany('App\Activity')
+            ->where('type', 'Run')
             ->selectRaw('user_id, sum(distance) as sum_distance')
             ->groupBy('user_id');
     }
@@ -39,6 +41,7 @@ class User  extends Authenticatable
     public function totalTime()
     {
         return $this->hasMany('App\Activity')
+            ->where('type', 'Run')
             ->selectRaw('user_id, sum(moving_time) as sum_time')
             ->groupBy('user_id');
     }
@@ -51,6 +54,7 @@ class User  extends Authenticatable
         return $this->hasMany('App\Activity')
             ->selectRaw('user_id, sum(distance) as sum_distance')
             ->groupBy('user_id')
+            ->where('type', 'Run')
             ->where('start_date', '>=', $monday)
             ->where('start_date', '<=', $sunday);
     }
@@ -63,6 +67,7 @@ class User  extends Authenticatable
         return $this->hasMany('App\Activity')
             ->selectRaw('user_id, sum(moving_time) as sum_time')
             ->groupBy('user_id')
+            ->where('type', 'Run')
             ->where('start_date', '>=', $monday)
             ->where('start_date', '<=', $sunday);
     }
@@ -72,6 +77,7 @@ class User  extends Authenticatable
         $sunday = Carbon::now()->subDay(7)->endOfWeek();
 
         return $this->activities
+            ->where('type', 'Run')
             ->where('start_date', '>=', $monday)
             ->where('start_date', '<=', $sunday);
     }
@@ -82,6 +88,7 @@ class User  extends Authenticatable
         $sunday = Carbon::now()->endOfWeek();
 
         return $this->activities
+            ->where('type', 'Run')
             ->where('start_date', '>=', $monday)
             ->where('start_date', '<=', $sunday);
     }
