@@ -73,10 +73,6 @@ class Strava
                 ['activityId' => $activity->id],
                 ['name' => $activity->name, 'type' => $activity->type, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
             );
-
-            //TODO remove activities from database when removed in Strava
-            //Activity::where('activityId', "!=" , $apiResult->id)->delete();
-
         }
     }
 }
