@@ -71,7 +71,7 @@ class Strava
         foreach ($activities as $activity) {
             Activity::updateOrCreate(
                 ['activityId' => $activity->id],
-                ['name' => $activity->name, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
+                ['name' => $activity->name, 'type' => $activity->type, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
             );
 
             //TODO remove activities from database when removed in Strava

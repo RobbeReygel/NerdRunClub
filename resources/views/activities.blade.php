@@ -3,7 +3,7 @@
 @section('content')
     @foreach ($activities as $activity)
         <div class="activity">
-            <h4 class="activityList-head">{{ $activity->name }}</h4>
+            <h4 class="activityList-head">{{ $activity->name }} ({{$activity->type}})</h4>
             <ul class="activityList">
 
                 <li class="activityList-item">{{ $activity->distance / 1000}} km</li>
