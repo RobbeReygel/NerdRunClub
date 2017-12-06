@@ -1,12 +1,14 @@
 @extends ('layout.app')
 @section('content')
 
-    <section class="users">
-        <div class="user">
-            <h2>{{$clickedUser->first_name}} {{$clickedUser->last_name}}</h2>
-            <img class="avatar" src="{{$clickedUser->avatar}}" alt="avatar">
+    <div class="profile">
+        <div class="profile__info">
+            <img src="{{ $clickedUser->avatar }}" alt="">
+            <div class="profile__name">
+                <h3>{{ $clickedUser->first_name }} {{ $clickedUser->last_name }}</h3>
+            </div>
         </div>
-    </section>
+    </div>
 
     <div class="row">
         <div class="col-md-3">
