@@ -17,6 +17,41 @@
 
         </div>
     </div> --->
+
+    <div class="user-progress">
+        <div class="line" style="left: 25%">
+            <p>25%</p>
+            <p class="bottom"><img class="medal medal-icon" src="images/medals/bronze.png" alt=""></p>
+        </div>
+        <div class="line" style="left: 50%">
+            <p>50%</p>
+            <p class="bottom"><img class="medal medal-icon" src="images/medals/silver.png" alt=""></p>
+        </div>
+        <div class="line" style="left: 95%">
+            <p>100%</p>
+            <p class="bottom"><img class="medal medal-icon" src="images/medals/gold.png" alt=""></p>
+        </div>
+        @if ($goal['totalRanThisWeek'] == 0)
+            <div class="inner" style="width: 0%">
+
+            </div>
+            <div class="progress-info">
+                <span class="weekly">Weekly Goal:</span>
+                <p>0 / {{ $goal['goalThisWeek'] }}KM</p>
+                <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
+            </div>
+        @else
+            <div class="inner"
+                 style="width: {{ round((($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek']) * 100) }}%">
+
+            </div>
+            <div class="progress-info">
+                <span class="weekly">Weekly Goal:</span>
+                <p>{{ round(($goal['totalRanThisWeek'] / 1000), 2) }} / {{ $goal['goalThisWeek'] }}KM</p>
+                <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
+            </div>
+        @endif
+    </div>
     <div class="row">
         <div class="col-md-3">
             <div class="trophy-case">
@@ -47,40 +82,6 @@
             </div>
         </div>
     </div>
-    <div class="user-progress">
-        <div class="line" style="left: 25%">
-            <p>25%</p>
-            <p class="bottom"><img class="medal medal-icon" src="images/medals/bronze.png" alt=""></p>
-        </div>
-        <div class="line" style="left: 50%">
-            <p>50%</p>
-            <p class="bottom"><img class="medal medal-icon" src="images/medals/silver.png" alt=""></p>
-        </div>
-        <div class="line" style="left: 95%">
-            <p>100%</p>
-            <p class="bottom"><img class="medal medal-icon" src="images/medals/gold.png" alt=""></p>
-        </div>
-        @if ($goal['totalRanThisWeek'] == 0)
-            <div class="inner" style="width: 0%">
-
-            </div>
-            <div class="progress-info">
-                <p>0 / {{ $goal['goalThisWeek'] }}KM</p>
-                <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
-            </div>
-        @else
-            <div class="inner"
-                 style="width: {{ round((($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek']) * 100) }}%">
-
-            </div>
-            <div class="progress-info">
-                <span class="weekly">Weekly Goal:</span>
-                <p>{{ round(($goal['totalRanThisWeek'] / 1000), 2) }} / {{ $goal['goalThisWeek'] }}KM</p>
-                <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
-            </div>
-        @endif
-    </div>
-
     @if (isset($user->totalDistanceWeekly[0]->sum_distance))
         <div class="row">
             <div class="col-md-6">

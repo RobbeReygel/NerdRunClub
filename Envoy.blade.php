@@ -4,7 +4,8 @@
     exec ssh-agent bash
     ssh-add ~/.ssh/git
     cd /home/nerdrunners
-    git pull origin master
+    git reset --hard HEAD
+    git pull
     php artisan migrate
     npm run production
 @endtask
