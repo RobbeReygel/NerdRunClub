@@ -19,7 +19,7 @@ use Carbon\Carbon;
 $factory->define(App\User::class, function (Faker $faker) {
 
     return [
-        'strava_id' => mt_rand(10000000, 99999999),
+        'strava_id' => $faker->numberBetween($min = 10000000, $max = 99999999),
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'sex' => $faker->randomElement($array = array ('M','V')),
@@ -44,7 +44,7 @@ $factory->define(App\Activity::class, function (Faker $faker) {
     $startDate = $date . $t . $time . $z;
 
     return [
-        'activityId' => mt_rand(1000000000, 1999999999),
+        'activityId' => $faker->numberBetween($min = 1000000000, $max = 1999999999),
         'user_id' => $faker->numberBetween($min = 1, $max = 20),
         'name' => $faker->randomElement($array = array ('Ochtend run','Avondloop','Middag run')),
         'type' => $faker->randomElement($array = array ('Run','Run','Run','Hike','Swim')),

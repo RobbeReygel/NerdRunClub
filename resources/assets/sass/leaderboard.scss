@@ -19,9 +19,9 @@
 .leaderboard li {
   margin-bottom: 25px;
   background-color: $primary-color;
-  background: -moz-linear-gradient(-45deg, $primary-color 0%, $secondary-color 100%);
-  background: -webkit-linear-gradient(-45deg, $primary-color 0%, $secondary-color 100%);
-  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  background: -moz-linear-gradient(-45deg, $primary-color 0%, $gradient-color 100%);
+  background: -webkit-linear-gradient(-45deg, $primary-color 0%, $gradient-color 100%);
+  background: linear-gradient(135deg, $primary-color 0%, $gradient-color 100%);
   padding:1.2em 0;
   color: white;
   list-style-type: none;
