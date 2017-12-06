@@ -32,7 +32,12 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Activity::class, function (Faker $faker) {
     $year = Carbon::now()->year;
     $month = Carbon::now()->month;
-    $date = $year.'-'.$month.'-'.mt_rand(1, 30);
+    $day = Carbon::now()->day;
+    $date2 = $day - mt_rand(1, ($day-1));
+    if($date2<10){
+        $date2= "0".$date2;
+    }
+    $date = $year.'-'.$month.'-'.$date2;
     $t = "T";
     $time = $faker->time($format = 'H:i:s', $max = 'now');
     $z = "Z";
