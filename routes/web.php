@@ -31,4 +31,3 @@ Route::get('/markAsRead',function(){
 });
 Route::get('/users', 'UserController@index')->name('users');
 Route::get('/user/{user}', 'UserController@show')->name('user');
-Route::post('/user/{user}','FriendController@create');

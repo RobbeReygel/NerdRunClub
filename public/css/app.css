@@ -10235,6 +10235,7 @@ body {
   padding-top: 0.7em;
   padding-bottom: 0.7em;
   border-radius: 0;
+  font-weight: bold;
 }
 
 .dropdown > .dropdown-menu > li > a:hover {

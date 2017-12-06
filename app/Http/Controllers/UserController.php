@@ -7,81 +7,54 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $users = User::all();
         return view('users/users', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $clickedUser = User::find($id);
-        return view('users/user', compact('clickedUser'));
+        $goal = $this->getWeeklyGoal($id);
+        return view('users/user', compact('clickedUser', 'goal'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    public function getWeeklyGoal($id) {
+        $user = User::find($id);
+        $data = [];
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $previouwWeek = $user->getRanPreviousWeek();
+        $thisWeek = $user->getRanThisWeek();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $totalRanPreviousWeek = 0;
+        $totalTimePreviousWeek = 0;
+        foreach ($previouwWeek as $a) {
+            $totalRanPreviousWeek += $a->distance;
+            $totalTimePreviousWeek += $a->moving_time;
+        }
+
+        $totalRanThisWeek = 0;
+        $totalTimeThisWeek = 0;
+        foreach ($thisWeek as $a) {
+            $totalRanThisWeek += $a->distance;
+            $totalTimeThisWeek += $a->moving_time;
+        }
+
+        $goalThisWeek = round(($totalRanPreviousWeek * 1.1) / 1000);
+        if ($goalThisWeek < 3)
+            $goalThisWeek = 3;
+
+        $goalNextWeek = round($goalThisWeek + ($totalRanThisWeek * .3) / 1000);
+
+        $data["totalRanThisWeek"] = $totalRanThisWeek;
+        $data["totalRanPreviousWeek"] = $totalRanPreviousWeek;
+        $data["totalTimeThisWeek"] = $totalTimeThisWeek;
+        $data["totalTimePreviousWeek"] = $totalTimePreviousWeek;
+        $data["goalThisWeek"] = $goalThisWeek;
+        $data["goalNextWeek"] = $goalNextWeek;
+
+        return $data;
     }
 }
