@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\User;
 use Illuminate\Console\Command;
 use App\Api\Strava;
+use Illuminate\Support\Facades\Log;
 
 class UpdateUserActivities extends Command
 {
@@ -39,10 +40,10 @@ class UpdateUserActivities extends Command
      */
     public function handle()
     {
-
         foreach (User::all() as $user) {
-            $strava = new Strava();
-            $strava->updateUserActivities($user);
+            $job = (new \App\Jobs\UpdateUserActivities($user));
+            dispatch($job);
+            Log::info('dispatching job for' . $user);
         }
     }
 }

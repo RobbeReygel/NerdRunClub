@@ -42,6 +42,7 @@ $factory->define(App\Activity::class, function (Faker $faker) {
         'activityId' => mt_rand(1000000000, 1999999999),
         'user_id' => $faker->numberBetween($min = 1, $max = 20),
         'name' => $faker->randomElement($array = array ('Ochtend run','Avondloop','Middag run')),
+        'type' => $faker->randomElement($array = array ('Run','Run','Run','Hike','Swim')),
         'distance' => $faker->numberBetween($min = 100, $max = 50000),
         'moving_time' => $faker->numberBetween($min = 100, $max = 50000),
         'start_date' => $startDate
