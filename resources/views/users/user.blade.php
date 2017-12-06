@@ -9,37 +9,6 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-3">
-            <div class="trophy-case">
-                <img class="medal medal-full" src="/images/medals/platinum.png" alt="">
-                <h3>{{ count($clickedUser->medals->where('type', 'platinum')) }}</h3>
-                <p>Trophies</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="trophy-case">
-                <img class="medal medal-full" src="/images/medals/gold.png" alt="">
-                <h3>{{ count($clickedUser->medals->where('type', 'gold')) }}</h3>
-                <p>Gold medals</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="trophy-case">
-                <img class="medal medal-full" src="/images/medals/silver.png" alt="">
-                <h3>{{ count($clickedUser->medals->where('type', 'silver')) }}</h3>
-                <p>Silver medals</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="trophy-case">
-                <img class="medal medal-full" src="/images/medals/bronze.png" alt="">
-                <h3>{{ count($clickedUser->medals->where('type', 'bronze')) }}</h3>
-                <p>Bronze medals</p>
-            </div>
-        </div>
-    </div>
     <div class="user-progress">
         <div class="line" style="left: 25%">
             <p>25%</p>
@@ -72,5 +41,35 @@
                 <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
             </div>
         @endif
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="trophy-case">
+                <img class="medal medal-full" src="/images/medals/platinum.png" alt="">
+                <h3>{{ count($clickedUser->medals->where('type', 'platinum')) }}</h3>
+                <p>Trophies</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="trophy-case">
+                <img class="medal medal-full" src="/images/medals/gold.png" alt="">
+                <h3>{{ count($clickedUser->medals->where('type', 'gold')) }}</h3>
+                <p>Gold medals</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="trophy-case">
+                <img class="medal medal-full" src="/images/medals/silver.png" alt="">
+                <h3>{{ count($clickedUser->medals->where('type', 'silver')) }}</h3>
+                <p>Silver medals</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="trophy-case">
+                <img class="medal medal-full" src="/images/medals/bronze.png" alt="">
+                <h3>{{ count($clickedUser->medals->where('type', 'bronze')) }}</h3>
+                <p>Bronze medals</p>
+            </div>
+        </div>
     </div>
 @endsection
