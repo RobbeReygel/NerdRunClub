@@ -13,28 +13,28 @@
     <div class="row">
         <div class="col-md-3">
             <div class="trophy-case">
-                <img class="medal medal-full" src="images/medals/platinum.png" alt="">
+                <img class="medal medal-full" src="/images/medals/platinum.png" alt="">
                 <h3>{{ count($clickedUser->medals->where('type', 'platinum')) }}</h3>
                 <p>Trophies</p>
             </div>
         </div>
         <div class="col-md-3">
             <div class="trophy-case">
-                <img class="medal medal-full" src="images/medals/gold.png" alt="">
+                <img class="medal medal-full" src="/images/medals/gold.png" alt="">
                 <h3>{{ count($clickedUser->medals->where('type', 'gold')) }}</h3>
                 <p>Gold medals</p>
             </div>
         </div>
         <div class="col-md-3">
             <div class="trophy-case">
-                <img class="medal medal-full" src="images/medals/silver.png" alt="">
+                <img class="medal medal-full" src="/images/medals/silver.png" alt="">
                 <h3>{{ count($clickedUser->medals->where('type', 'silver')) }}</h3>
                 <p>Silver medals</p>
             </div>
         </div>
         <div class="col-md-3">
             <div class="trophy-case">
-                <img class="medal medal-full" src="images/medals/bronze.png" alt="">
+                <img class="medal medal-full" src="/images/medals/bronze.png" alt="">
                 <h3>{{ count($clickedUser->medals->where('type', 'bronze')) }}</h3>
                 <p>Bronze medals</p>
             </div>
@@ -43,15 +43,15 @@
     <div class="user-progress">
         <div class="line" style="left: 25%">
             <p>25%</p>
-            <p class="bottom"><img class="medal medal-icon" src="images/medals/bronze.png" alt=""></p>
+            <p class="bottom"><img class="medal medal-icon" src="/images/medals/bronze.png" alt=""></p>
         </div>
         <div class="line" style="left: 50%">
             <p>50%</p>
-            <p class="bottom"><img class="medal medal-icon" src="images/medals/silver.png" alt=""></p>
+            <p class="bottom"><img class="medal medal-icon" src="/images/medals/silver.png" alt=""></p>
         </div>
         <div class="line" style="left: 95%">
             <p>100%</p>
-            <p class="bottom"><img class="medal medal-icon" src="images/medals/gold.png" alt=""></p>
+            <p class="bottom"><img class="medal medal-icon" src="/images/medals/gold.png" alt=""></p>
         </div>
         @if ($goal['totalRanThisWeek'] == 0)
             <div class="inner" style="width: 0%">
