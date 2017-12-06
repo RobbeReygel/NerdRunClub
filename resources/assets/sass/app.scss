@@ -36,6 +36,9 @@ h2{
 
 h4.activityList-head{
   background-color: $primary-color;
+  background: -moz-linear-gradient(-45deg, $primary-color 0%, $secondary-color 100%);
+  background: -webkit-linear-gradient(-45deg, $primary-color 0%, $secondary-color 100%);
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
   color: white;
   margin: 0;
   padding:1em 0;
@@ -51,6 +54,8 @@ h4.activityList-head{
   margin-bottom: 15px;
   color: white;
   margin-top: 40px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 #totalrun, #totaltime{
   width: 50%;

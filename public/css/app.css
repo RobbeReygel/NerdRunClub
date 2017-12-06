@@ -10109,9 +10109,12 @@ button.close {
 .leaderboard li {
   margin-bottom: 25px;
   background-color: #e77e21;
+  background: linear-gradient(135deg, #e77e21 0%, #ff2000 100%);
   padding: 1.2em 0;
   color: white;
   list-style-type: none;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .leaderboard h3 {
@@ -10146,6 +10149,7 @@ body {
   margin-top: 30px;
   padding: 40px 0;
   color: #FFF;
+  border-radius: 5px;
 }
 
 .title {
@@ -10571,6 +10575,7 @@ h2 {
 
 h4.activityList-head {
   background-color: #e77e21;
+  background: linear-gradient(135deg, #e77e21 0%, #ff2000 100%);
   color: white;
   margin: 0;
   padding: 1em 0;
@@ -10587,6 +10592,8 @@ h4.activityList-head {
   margin-bottom: 15px;
   color: white;
   margin-top: 40px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 #totalrun, #totaltime {
