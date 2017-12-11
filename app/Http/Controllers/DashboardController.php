@@ -31,8 +31,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $strava = new Strava();
-        $strava->updateUserActivities($user);
+
 
         $goal = $this->getWeeklyGoal();
 

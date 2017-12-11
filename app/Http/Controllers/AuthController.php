@@ -31,6 +31,9 @@ class AuthController extends Controller
         $user->save();
 
         Auth::login($user);
+
+        $strava = new Strava();
+        $strava->updateUserActivities($user);
         
         return redirect()->route('dashboard');
     }
