@@ -69,10 +69,12 @@ class Strava
 
         $activities = Strava::get('athlete/activities', ['query' => 'access_token=' . $user->token]);
         foreach ($activities as $activity) {
-            Activity::updateOrCreate(
-                ['activityId' => $activity->id],
-                ['name' => $activity->name, 'type' => $activity->type, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
-            );
+            if($activity->manual == 0) {
+                Activity::updateOrCreate(
+                    ['activityId' => $activity->id],
+                    ['name' => $activity->name, 'type' => $activity->type, 'manual' => $activity->manual, 'distance' => $activity->distance, 'user_id' => $user->id, 'moving_time' => $activity->moving_time, 'start_date' => $activity->start_date]
+                );
+            }
         }
     }
 }

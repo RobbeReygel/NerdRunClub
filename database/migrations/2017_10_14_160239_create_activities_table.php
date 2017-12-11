@@ -20,6 +20,7 @@ class CreateActivitiesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name');
             $table->string('type');
+            $table->boolean('manual');
             $table->integer('distance')->nullable();
             $table->integer('moving_time')->nullable();
             $table->string("start_date")->nullable();
