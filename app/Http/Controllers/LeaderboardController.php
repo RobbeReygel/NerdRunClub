@@ -60,7 +60,8 @@ class LeaderboardController extends Controller
         });
 
         $list = array_slice($list, 0, 50);
-
-        return view('leaderboard', compact('list','i'));
+        $monday = Carbon::now()->startOfWeek()->format('d F');
+        $sunday = Carbon::now()->endOfWeek()->format('d F');
+        return view('leaderboard', compact('list','i', 'monday', 'sunday'));
     }
 }

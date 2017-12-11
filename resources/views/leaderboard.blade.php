@@ -1,6 +1,7 @@
 @extends ('layout.app')
 
 @section('content')
+    <h3 style="color:white;"><span class="fa fa-calendar "> </span> &nbsp;{{ $monday }} » {{ $sunday }}</h3>
     <div class="leaderboard">
     <ul>
         @foreach($list as $item)
