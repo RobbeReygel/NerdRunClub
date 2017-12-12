@@ -10698,58 +10698,6 @@ div.bgContainer {
   position: fixed;
 }
 
-a.animated-button:link, a.animated-button:visited {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5em;
-  padding: 1.2em 5em;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  letter-spacing: .08em;
-  border-radius: 0;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-}
-
-a.animated-button:link:after, a.animated-button:visited:after {
-  content: "";
-  position: absolute;
-  height: 0%;
-  left: 50%;
-  top: 50%;
-  width: 150%;
-  z-index: -1;
-  -webkit-transition: all 0.75s ease 0s;
-  transition: all 0.75s ease 0s;
-}
-
-a.animated-button:link:hover, a.animated-button:visited:hover {
-  color: #FFF;
-  text-shadow: none;
-}
-
-a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
-  height: 450%;
-}
-
-/* Victoria Buttons */
-a.animated-button.victoria-two {
-  border: 2px solid #e77e21;
-}
-
-a.animated-button.victoria-two:after {
-  background: #e77e21;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  transform: translateX(-50%) translateY(-50%) rotate(25deg);
-}
-
 section.indexContent {
   padding-top: 50%;
   text-align: center;
@@ -10793,31 +10741,23 @@ nav.textLogo a {
           justify-content: center;
 }
 
-.users form.form-add {
-  width: 100%;
-  display: block;
-  margin: 20px 0;
+.user {
+  margin-top: 2em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
-.users form.form-add button.add-friend {
-  margin-top: 30px;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  width: 70%;
-  padding: 20px 40px;
-  color: #FFF;
-  background-color: #e77e21;
+.user a {
+  color: #e77e21;
+}
+
+h4.imgName {
+  text-align: center;
+  font-size: 2em;
   font-weight: bold;
+  color: #e77e21;
   text-transform: uppercase;
-  border-radius: 5px;
-  border: 0;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
-}
-
-.users form.form-add button.add-friend:hover {
-  background-color: #ff2000;
+  text-decoration: none;
 }
 
 .avatar {
@@ -10830,6 +10770,7 @@ nav.textLogo a {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  opacity: 0.7;
 }
 
 .avatar:hover {
@@ -10908,5 +10849,14 @@ nav.textLogo a {
   }
   .avatar {
     margin: 0;
+    width: 150px;
+    height: 150px;
+    border: 10px solid #e77e21;
+  }
+  .avatar:hover {
+    border: 10px solid #ff2000;
+  }
+  h4.imgName {
+    font-size: 1.5em;
   }
 }

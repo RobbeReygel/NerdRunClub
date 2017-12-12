@@ -128,7 +128,6 @@ div.top3 p{
 p#name{
   font-weight: bold;
 }
-
 div.bgContainer{
   background-color: black;
   background-image: url("../images/runningBg.png");
@@ -137,60 +136,6 @@ div.bgContainer{
   width: 100%;
   height: 100%;
   position: fixed;
-}
-a.animated-button:link, a.animated-button:visited {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5em;
-  padding: 1.2em 5em;
-  color: #fff;
-  font-size:14px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  letter-spacing: .08em;
-  border-radius: 0;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-}
-a.animated-button:link:after, a.animated-button:visited:after {
-  content: "";
-  position: absolute;
-  height: 0%;
-  left: 50%;
-  top: 50%;
-  width: 150%;
-  z-index: -1;
-  -webkit-transition: all 0.75s ease 0s;
-  -moz-transition: all 0.75s ease 0s;
-  -o-transition: all 0.75s ease 0s;
-  transition: all 0.75s ease 0s;
-}
-a.animated-button:link:hover, a.animated-button:visited:hover {
-  color: #FFF;
-  text-shadow: none;
-}
-a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
-  height: 450%;
-}
-
-/* Victoria Buttons */
-
-a.animated-button.victoria-two {
-  border: 2px solid $primary-color;
-}
-a.animated-button.victoria-two:after {
-  background: $primary-color;
-  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  transform: translateX(-50%) translateY(-50%) rotate(25deg);
 }
 section.indexContent{
   padding-top: 50%;
@@ -223,29 +168,24 @@ nav.textLogo a{
   flex-direction: column;
   width: 100%;
   justify-content: center;
+
 }
-.users form.form-add{
-  width: 100%;
-  display: block;
-  margin: 20px 0;
+.user{
+  margin-top: 2em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  a{
+    color: $primary-color;
+  }
 }
-.users form.form-add button.add-friend{
-  margin-top: 30px;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  width: 70%;
-  padding: 20px 40px;
-  color: #FFF;
-  background-color: $primary-color;
+
+h4.imgName{
+  text-align: center;
+  font-size: 2em;
   font-weight: bold;
+  color: $primary-color;
   text-transform: uppercase;
-  border-radius: 5px;
-  border:0;
-  transition: all .2s ease;
-}
-.users form.form-add button.add-friend:hover{
-  background-color: $secondary-color;
+  text-decoration: none;
 }
 .avatar{
   border: 15px solid $primary-color;
@@ -256,6 +196,7 @@ nav.textLogo a{
   display: block;
   margin-right: auto;
   margin-left: auto;
+  opacity: 0.7;
 }
 .avatar:hover{
   border: 15px solid $secondary-color;
@@ -325,5 +266,15 @@ nav.textLogo a{
   }
   .avatar{
     margin:0;
+    width: 150px;
+    height: 150px;
+    border: 10px solid $primary-color;
+
+  }
+  .avatar:hover{
+    border: 10px solid $secondary-color;
+  }
+  h4.imgName{
+    font-size: 1.5em;
   }
 }

@@ -4,10 +4,12 @@
     <section class="users">
         @foreach($users as $u)
             <div class="user">
-                <h2>{{$u->name}}</h2>
+                <a href="/user/{{$u->id}}">
 
-                <a href="/user/{{$u->id}}" class="img-url">
-                    <img class="avatar" src="{{$u->avatar}}" alt="avatar">
+                        <img class="avatar" src="{{$u->avatar}}" alt="{{$u->first_name}} {{$u->last_name}}">
+
+                        <h4 class="imgName">{{$u->first_name}}</h4>
+
                 </a>
             </div>
         @endforeach
