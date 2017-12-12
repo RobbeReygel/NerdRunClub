@@ -18,7 +18,7 @@ class UserController extends Controller
 
             if($request->input('keyword') != "") {
                 $keyword = $request->input('keyword');
-                $users = User::where('first_name', $keyword )->orWhere('last_name', 'like', '%' . $keyword . '%')->get();
+                $users = User::where('first_name', 'like', '%' . $keyword . '%')->orWhere('last_name', 'like', '%' . $keyword . '%')->get();
                 return view('users/users', ['users' => $users]);
             }
             else{
