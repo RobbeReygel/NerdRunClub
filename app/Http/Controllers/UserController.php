@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        return view('users/users', compact('users'));
+        $keyword = $request->input('keyword');
+        $users = User::all()
+        ->search($keyword);
+        return view('users/users', compact('users', 'keyword'));
     }
 
     public function show($id)

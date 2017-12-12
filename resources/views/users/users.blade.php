@@ -1,6 +1,10 @@
 @extends ('layout.app')
 
 @section('content')
+    <form action="{{ route('users') }}" method="get">
+        <input type="text" name="keyword" placeholder="keyword" value="{{ isset($keyword) ? $keyword : '' }}">
+        <button type="submit">Filter</button>
+    </form>
     <section class="users">
         @foreach($users as $u)
             <div class="user">
@@ -12,7 +16,9 @@
 
                 </a>
             </div>
+
         @endforeach
     </section>
+    {{ $users->appends(['keyword' => $keyword]) }}
 @endsection
 
