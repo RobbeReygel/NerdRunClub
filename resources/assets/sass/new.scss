@@ -191,6 +191,13 @@ body {
     background: -moz-linear-gradient(-45deg, $primary-color 0%, $secondary-color 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, $primary-color 0%, $secondary-color 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    &.completed {
+      background: #2ab27b; /* Old browsers */
+      background: -moz-linear-gradient(-45deg, #2ab27b 0%, #1eb2a4 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(-45deg, #2ab27b 0%, #1eb2a4 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(135deg, #2ab27b 0%, #1eb2a4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
   }
 
   .progress-info  {

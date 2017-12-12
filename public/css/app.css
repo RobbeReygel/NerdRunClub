@@ -10339,6 +10339,15 @@ body {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
+.user-progress .inner.completed {
+  background: #2ab27b;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #2ab27b 0%, #1eb2a4 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
 .user-progress .progress-info {
   text-align: center;
   margin: 55px 0;

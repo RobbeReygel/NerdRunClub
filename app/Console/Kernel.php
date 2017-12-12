@@ -28,7 +28,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('activities:update')->hourlyAt(0, 30);
         $schedule->command('notifications:update')->daily();
-        $schedule->command('medals:give')->cron('0 23 * * 7');
     }
 
     /**

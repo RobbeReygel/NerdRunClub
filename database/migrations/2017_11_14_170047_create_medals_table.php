@@ -17,6 +17,8 @@ class CreateMedalsTable extends Migration
             $table->increments('id');
             $table->string('type');
             $table->string('short_name');
+            $table->string('week');
+            $table->string('year');
             $table->string('long_name');
             $table->integer('user_id');
             $table->timestamps();

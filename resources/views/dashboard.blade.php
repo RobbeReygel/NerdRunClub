@@ -41,8 +41,13 @@
                 <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
             </div>
         @else
-            <div class="inner"
-                 style="width: {{ round((($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek']) * 100) }}%">
+            <div class="inner
+                @if (round((($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek']) * 100) > 100)
+                    completed
+                @endif"
+                 style="width: {{ round((($goal['totalRanThisWeek'] / 1000) / $goal['goalThisWeek']) * 100) }}%"
+
+            >
 
             </div>
             <div class="progress-info">
@@ -53,28 +58,21 @@
         @endif
     </div>
     <div class="row">
-        <div class="col-md-3">
-            <div class="trophy-case">
-                <img class="medal medal-full" src="images/medals/platinum.png" alt="">
-                <h3>{{ count($user->medals->where('type', 'platinum')) }}</h3>
-                <p>Trophies</p>
-            </div>
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="trophy-case">
                 <img class="medal medal-full" src="images/medals/gold.png" alt="">
                 <h3>{{ count($user->medals->where('type', 'gold')) }}</h3>
                 <p>Gold medals</p>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="trophy-case">
                 <img class="medal medal-full" src="images/medals/silver.png" alt="">
                 <h3>{{ count($user->medals->where('type', 'silver')) }}</h3>
                 <p>Silver medals</p>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="trophy-case">
                 <img class="medal medal-full" src="images/medals/bronze.png" alt="">
                 <h3>{{ count($user->medals->where('type', 'bronze')) }}</h3>
