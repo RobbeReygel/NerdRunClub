@@ -20,7 +20,8 @@ class UserController extends Controller
     {
         $clickedUser = User::find($id);
         $goal = $this->getWeeklyGoal($id);
-        return view('users/user', compact('clickedUser', 'goal'));
+        $activities = $clickedUser->activities;
+        return view('users/user', compact('clickedUser', 'goal', 'activities'));
     }
 
     public function getWeeklyGoal($id) {

@@ -33,7 +33,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @auth
-                <li><a href="/activities">Activities</a></li>
+                <!--<li><a href="/activities">Activities</a></li>-->
                 <li><a href="/leaderboard">Leaderboard</a></li>
                 <li><a href="/medals">Medals</a></li>
                 <li><a href="/users">Users</a></li>
