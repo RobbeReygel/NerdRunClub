@@ -93,11 +93,6 @@ class User  extends Authenticatable
             ->where('start_date', '>=', $monday)
             ->where('start_date', '<=', $sunday);
     }
-    public function scopeSearch($query, $keyword)
-    {
-        return $query->where('first_name', 'like', '%' .$keyword. '%')
-            ->orWhere('last_name', 'like', '%' .$keyword. '%');
-    }
 
     public function giveMedal() {
         $this_week = Medal::where('week', '=', date('W', time()))

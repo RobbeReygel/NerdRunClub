@@ -8,12 +8,23 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
-        $keyword = $request->input('keyword');
-        $users = User::all()
-        ->search($keyword);
-        return view('users/users', compact('users', 'keyword'));
+        $users = User::all();
+        return view('users/users', compact('users'));
+    }
+
+    public function search(Request $request){
+
+            if($request->input('keyword') != "") {
+                $keyword = $request->input('keyword');
+                $users = User::where('first_name', $keyword )->orWhere('last_name', 'like', '%' . $keyword . '%')->get();
+                return view('users/users', ['users' => $users]);
+            }
+            else{
+                return redirect('users/');
+            }
+
     }
 
     public function show($id)
