@@ -25,6 +25,11 @@ class User  extends Authenticatable
         return $this->hasMany('App\Medal');
     }
 
+    public function goldMedals() {
+        return $this->hasMany('App\Medal')
+            ->where('type', 'gold');
+    }
+
     public function lastActivity() {
         return $this->hasMany('App\Activity')
             ->where('type', 'Run')

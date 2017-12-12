@@ -31,49 +31,23 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-
+        $user->giveMedal();
 
         $goal = $this->getWeeklyGoal();
 
-        /*
-        $users = User::has('activities')->get();
-        $list = array();
+        $weeks = array(50, 51, 52, 1, 2, 3, 4, 5, 6);
 
+        $medals = $user->goldMedals;
 
-        foreach ($users as $u) {
-            $fdate = $u->lastActivity->first()->created_at;
-            $tdate = Carbon::now();
+        $test = array();
 
-            $datetime1 = new DateTime($fdate);
-            $datetime2 = new DateTime($tdate);
-            $interval = $datetime1->diff($datetime2);
-            $dayslist = $interval->format('%a');
-            if($dayslist < 7) {
-                $res = $u;
-                if (array_key_exists(0, $u->totalDistanceWeekly)) {
-                    $res->totalDistanceWeekly = $u->totalDistanceWeekly[0]->sum_distance;
-                } else {
-                    $res->totalDistanceWeekly = 0;
-                }
-
-                $list[] = $res;
-            }else{
-                $res = $u;
-                $res->totalDistanceWeekly = 0;
-                $list[] = $res;
-            }
+        foreach($medals as $medal)
+        {
+            array_push($test, $medal->week);
         }
 
 
-        usort($list , function( $a, $b) {
-            if( $a->totalDistanceWeekly == $b->totalDistanceWeekly)
-                return 0;
-            return $a->totalDistanceWeekly < $b->totalDistanceWeekly ? 1 : -1; // Might need to switch 1 and -1
-        });
-
-        */
-
-        return view('dashboard', compact('user', 'goal'));
+        return view('dashboard', compact('user', 'goal', 'weeks', 'test'));
     }
 
     public function getWeeklyGoal() {
