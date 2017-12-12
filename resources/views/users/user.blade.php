@@ -3,7 +3,11 @@
 
     <div class="profile">
         <div class="profile__info">
-            <img src="{{ $clickedUser->avatar }}" alt="">
+            @if ($clickedUser->avatar == "avatar/athlete/large.png")
+                <img src="/{{ $clickedUser->avatar }}" alt="">
+            @else
+                <img src="{{ $clickedUser->avatar }}" alt="">
+            @endif
             <div class="profile__name">
                 <h3>{{ $clickedUser->first_name }} {{ $clickedUser->last_name }}</h3>
             </div>
