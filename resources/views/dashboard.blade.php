@@ -57,6 +57,25 @@
             </div>
         @endif
     </div>
+
+    <ul style="list-style: none; display: flex; align-items: stretch; justify-content: space-between; padding: 0; margin-top: 30px;">
+
+            @foreach($weeks as $week)
+                @if(in_array($week, $test))
+                <li style="display: block; text-align: center; margin-right: 0px; flex: 0 1 auto; width: 50px; height: 50px; background: linear-gradient(135deg, #e77e21 0%, #e75722 100%); border-radius: 5px; border: 3px solid orange;"><span class="fa fa-check fa-3x" style="color:#2ab27b;"></span></li>
+                @else
+                <li style="display: block; text-align: center; margin-right: 0px; flex: 0 1 auto; width: 50px; height: 50px; background-color: #2a2a2a; border-radius: 5px; border: 3px solid orange;"><span class="fa fa-times fa-3x" style="color:#e74c3c;"></span></li>
+                @endif
+            @endforeach
+
+    </ul>
+
+    <ul style="list-style: none; display: flex; align-items: stretch; justify-content: space-between; padding: 0;">
+        @for ($i = 1; $i < 10; $i++)
+            <li style="color: white; font-size:0.9em;">Week {{$i}}</li>
+        @endfor
+    </ul>
+
     <div class="row">
         <div class="col-md-4">
             <div class="trophy-case">
