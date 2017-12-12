@@ -18,7 +18,7 @@
 <div class="hero">
     <div class="center">
         <h1>We challenge ourselves! #nerdrunners #weareimd</h1>
-        <!-- <a href="{{ route('auth.redirect') }}" class="btn btn-sm animated-button victoria-two">Login</a> -->
+        <h2>Let us help you motivate yourself to run and prepare for the 10 miles!</h2>
         <a href="{{ route('auth.redirect') }}">Login with strava</a>
     </div>
 </div>

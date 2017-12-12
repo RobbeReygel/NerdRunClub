@@ -10505,6 +10505,10 @@ footer .footer-dark {
   max-width: 700px;
 }
 
+.hero .center h2 {
+  color: white;
+}
+
 .hero .center h1 {
   color: #FFF;
   font-weight: bold;
