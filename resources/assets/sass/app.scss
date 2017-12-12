@@ -48,7 +48,7 @@ h4.activityList-head{
   font-size: 1.2em;
 }
 .activity{
-  width: 93%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
@@ -201,6 +201,58 @@ h4.imgName{
 .avatar:hover{
   border: 15px solid $secondary-color;
 }
+form.search{
+  display: block;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 1em;
+
+  input[type=search]{
+    border:1px solid $primary-color;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    height: 50px;
+    border-radius: 5px;
+
+  }
+  button {
+    height: 50px;
+    padding: 15px 25px;
+    background-color: $primary-color;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all .2s ease;
+    border: none;
+    width: 300px;
+    margin-top: 1em;
+  }
+  label{
+    display: block;
+    width: 100%;
+    color:$primary-color;
+    font-size: 1.3em;
+    padding-bottom: 0.5em;
+  }
+  div{
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  button:hover {
+    text-decoration: none;
+    background-color: $secondary-color;
+  }
+}
 @media (min-width: 480px) {
   section.indexContent{
     padding-top: 15%;
@@ -276,5 +328,18 @@ h4.imgName{
   }
   h4.imgName{
     font-size: 1.5em;
+  }
+  form.search{
+    button{
+      width: auto;
+      margin-left: 1em;
+      margin-top: 0;
+    }
+    div{
+      width: 400px;
+    }
+    section{
+      flex-direction: row;
+    }
   }
 }

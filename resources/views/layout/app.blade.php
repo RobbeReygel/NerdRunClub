@@ -87,7 +87,7 @@
         </div>
     </div>
     <div class="footer-dark">
-        &copy; {{ date('Y') }} Ofzoiets
+        &copy; {{ date('Y') }} nerdrunners #weareimd
     </div>
 </footer>
 </body>

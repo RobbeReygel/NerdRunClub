@@ -1,10 +1,15 @@
 @extends ('layout.app')
 
 @section('content')
-    <form action="{{ action('UserController@search') }}" method="post">
+    <form action="{{ action('UserController@search') }}" method="post" class="search">
         {{ csrf_field() }}
-        <input type="search" name="keyword" placeholder="keyword">
-        <button>Filter</button>
+        <div>
+            <label for="keyword">Search your runner!</label>
+            <section>
+                <input type="search" id="keyword" name="keyword" placeholder="keyword">
+                <button>Filter</button>
+            </section>
+        </div>
     </form>
     <section class="users">
         @foreach($users as $u)

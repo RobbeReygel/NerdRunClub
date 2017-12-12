@@ -10599,7 +10599,7 @@ h4.activityList-head {
 }
 
 .activity {
-  width: 93%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
@@ -10786,6 +10786,70 @@ h4.imgName {
   border: 15px solid #ff2000;
 }
 
+form.search {
+  display: block;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+form.search input[type=search] {
+  border: 1px solid #e77e21;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  height: 50px;
+  border-radius: 5px;
+}
+
+form.search button {
+  height: 50px;
+  padding: 15px 25px;
+  background-color: #e77e21;
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  border: none;
+  width: 300px;
+  margin-top: 1em;
+}
+
+form.search label {
+  display: block;
+  width: 100%;
+  color: #e77e21;
+  font-size: 1.3em;
+  padding-bottom: 0.5em;
+}
+
+form.search div {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form.search section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+form.search button:hover {
+  text-decoration: none;
+  background-color: #ff2000;
+}
+
 @media (min-width: 480px) {
   section.indexContent {
     padding-top: 15%;
@@ -10867,5 +10931,19 @@ h4.imgName {
   }
   h4.imgName {
     font-size: 1.5em;
+  }
+  form.search button {
+    width: auto;
+    margin-left: 1em;
+    margin-top: 0;
+  }
+  form.search div {
+    width: 400px;
+  }
+  form.search section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
