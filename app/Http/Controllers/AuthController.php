@@ -30,7 +30,7 @@ class AuthController extends Controller
         $user->token = $login->access_token;
         $user->save();
 
-        $user->giveMedal();
+        //$user->giveMedal();
 
         Auth::login($user);
 
