@@ -6,7 +6,7 @@
         <div>
             <label for="keyword">Search your runner!</label>
             <section>
-                <input type="search" id="keyword" name="keyword" placeholder="keyword">
+                <input type="search" id="keyword" name="keyword" placeholder="keyword" value="{{ old('keyword') }}">
                 <button>Filter</button>
             </section>
         </div>

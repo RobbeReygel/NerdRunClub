@@ -136,17 +136,21 @@ class User  extends Authenticatable
             $medal->type = "bronze";
             $medal->short_name = "WEEKLY";
             $medal->long_name = "Weekly reward 25%";
+
+            $medal->save();
         } else if ($perc >= 50 && $perc < 100) {
             $medal->type = "silver";
             $medal->short_name = "WEEKLY";
             $medal->long_name = "Weekly reward 50%";
+
+            $medal->save();
         } else if ($perc >= 100) {
             $medal->type = "gold";
             $medal->short_name = "WEEKLY";
             $medal->long_name = "Weekly reward 100%";
-        }
 
-        $medal->save();
+            $medal->save();
+        }
     }
 
     public function createMedal() {
@@ -177,19 +181,23 @@ class User  extends Authenticatable
             $medal->short_name = "WEEKLY";
             $medal->long_name = "Weekly reward 25%";
             $medal->user_id = $this->id;
+
+            $medal->save();
         } else if ($perc >= 50 && $perc < 100) {
             $medal->type = "silver";
             $medal->short_name = "WEEKLY";
             $medal->long_name = "Weekly reward 50%";
             $medal->user_id = $this->id;
+
+            $medal->save();
         } else if ($perc >= 100) {
             $medal->type = "gold";
             $medal->short_name = "WEEKLY";
             $medal->long_name = "Weekly reward 100%";
             $medal->user_id = $this->id;
-        }
 
-        $medal->save();
+            $medal->save();
+        }
         $this->notify(new MedalReceived());
     }
 }
