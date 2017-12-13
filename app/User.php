@@ -183,6 +183,7 @@ class User  extends Authenticatable
             $medal->user_id = $this->id;
 
             $medal->save();
+            $this->notify(new MedalReceived());
         } else if ($perc >= 50 && $perc < 100) {
             $medal->type = "silver";
             $medal->short_name = "WEEKLY";
@@ -190,6 +191,7 @@ class User  extends Authenticatable
             $medal->user_id = $this->id;
 
             $medal->save();
+            $this->notify(new MedalReceived());
         } else if ($perc >= 100) {
             $medal->type = "gold";
             $medal->short_name = "WEEKLY";
@@ -197,7 +199,7 @@ class User  extends Authenticatable
             $medal->user_id = $this->id;
 
             $medal->save();
+            $this->notify(new MedalReceived());
         }
-        $this->notify(new MedalReceived());
     }
 }
