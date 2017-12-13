@@ -36,7 +36,7 @@
 
             </div>
             <div class="progress-info">
-                <span class="weekly">Weekly Goal:</span>
+                <span class="weekly">Weekly Goal <span style="color: #e77e21;">(WEEK 1)</span>:</span>
                 <p>0 / {{ $goal['goalThisWeek'] }}KM</p>
                 <span>Volgende week: {{ $goal['goalNextWeek'] }}KM lopen</span>
             </div>
