@@ -10475,11 +10475,11 @@ footer .footer-dark {
 .no-content {
   color: #818181;
   text-align: center;
-  margin: 100px 0;
+  margin: 2em 0;
 }
 
 .no-content h3 {
-  font-size: 5em;
+  font-size: 3em;
 }
 
 .hero {
