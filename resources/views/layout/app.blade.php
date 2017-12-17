@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <link rel="icon" href="/images/logo.svg">
 </head>
 <body>
 <nav class="navbar navbar-default">
