@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\Http\Controllers\UserController;
 use App\Api\Strava;
 use Carbon\Carbon;
 use DateTime;
@@ -35,6 +36,18 @@ class DashboardController extends Controller
 
         $goal = $this->getWeeklyGoal();
 
+        $users = User::all();
+
+        $userarray = array();
+
+
+        foreach ($users as $user) {
+            $test = $this->getWeeklyGoals($user->id);
+            array_push($userarray, $test);
+        }
+
+        //dd($userarray);
+
         $weeks = array(50, 51, 52, 1, 2, 3, 4, 5, 6);
 
         $medals = $user->goldMedals;
@@ -47,7 +60,7 @@ class DashboardController extends Controller
         }
 
 
-        return view('dashboard', compact('user', 'goal', 'weeks', 'test'));
+        return view('dashboard', compact('user', 'goal', 'weeks', 'test','userarray'));
     }
 
     public function getWeeklyGoal() {
@@ -83,6 +96,45 @@ class DashboardController extends Controller
         $data["totalTimePreviousWeek"] = $totalTimePreviousWeek;
         $data["goalThisWeek"] = $goalThisWeek;
         $data["goalNextWeek"] = $goalNextWeek;
+
+        return $data;
+    }
+
+
+    public function getWeeklyGoals($id) {
+        $user = User::find($id);
+        $data = [];
+
+        $previouwWeek = $user->getRanPreviousWeek();
+        $thisWeek = $user->getRanThisWeek();
+
+        $totalRanPreviousWeek = 0;
+        $totalTimePreviousWeek = 0;
+        foreach ($previouwWeek as $a) {
+            $totalRanPreviousWeek += $a->distance;
+            $totalTimePreviousWeek += $a->moving_time;
+        }
+
+        $totalRanThisWeek = 0;
+        $totalTimeThisWeek = 0;
+        foreach ($thisWeek as $a) {
+            $totalRanThisWeek += $a->distance;
+            $totalTimeThisWeek += $a->moving_time;
+        }
+
+        $goalThisWeek = round(($totalRanPreviousWeek * 1.1) / 1000);
+        if ($goalThisWeek < 3)
+            $goalThisWeek = 3;
+
+        $goalNextWeek = round($goalThisWeek + ($totalRanThisWeek * .3) / 1000);
+
+        $data["totalRanThisWeek"] = $totalRanThisWeek;
+        $data["totalRanPreviousWeek"] = $totalRanPreviousWeek;
+        $data["totalTimeThisWeek"] = $totalTimeThisWeek;
+        $data["totalTimePreviousWeek"] = $totalTimePreviousWeek;
+        $data["goalThisWeek"] = $goalThisWeek;
+        $data["goalNextWeek"] = $goalNextWeek;
+        $data["user"] = $user->avatar;
 
         return $data;
     }

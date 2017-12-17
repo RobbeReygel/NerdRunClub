@@ -58,6 +58,21 @@
         @endif
     </div>
 
+    <ul style="list-style: none; position: relative; margin-bottom:55px;">
+        @foreach($userarray as $u)
+            @if(round((($u['totalRanThisWeek'] / 1000) / $u['goalThisWeek']) * 100) <= 98)
+                <li style="position: absolute; width: 20px; top: 0px; left: {{ round((($u['totalRanThisWeek'] / 1000) / $u['goalThisWeek']) * 100) }}%">
+                    <img src="{{$u['user']}}" style="width: 20px; border-radius: 50%; border: 1px solid orange;"/>
+                </li>
+            @else
+                <li style="position: absolute; width:20px; top: 0px; left: 98%;">
+                    <img src="{{$u['user']}}" style="width: 20px; border-radius: 50%; border: 1px solid orange;"/>
+                </li>
+            @endif
+        @endforeach
+    </ul>
+
+
     <ul style="list-style: none; display: flex; align-items: stretch; justify-content: space-between; padding: 0; margin-top: 30px;">
 
             @foreach($weeks as $week)
